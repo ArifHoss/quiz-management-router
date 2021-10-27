@@ -1,12 +1,10 @@
 <template>
-<div class="testPage">
-  <h3>This is a test page!</h3>
-</div>
+<h1>Quiz Bank</h1>
 </template>
 
 <script>
 export default {
-  name: "testPage"
+  name: "BrowseQuiz"
 }
 </script>
 

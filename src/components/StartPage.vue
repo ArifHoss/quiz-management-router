@@ -1,17 +1,27 @@
 <template>
   <div class="hello">
+
     <h1>{{ msg }}</h1>
-    <h3>Digital Learning for kids</h3>
-    <p>Free learning!</p>
-    <p>Learning by doing!</p>
-    <p>Fun for the whole family</p>
+
+      <article class="startQuiz">
+        <p>Lägg in quiz</p>
+      </article>
+
+    <article class="startQuiz">
+      <p>Lägg in quiz</p>
+    </article>
+
+    <article class="startQuiz">
+      <p>Lägg in quiz</p>
+    </article>
+
 
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'StartPage',
   props: {
     msg: String
   }
