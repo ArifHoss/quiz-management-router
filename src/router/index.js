@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import BrowseQuiz from "@/views/BrowseQuiz";
 
 Vue.use(VueRouter)
 
@@ -16,7 +17,7 @@ const routes = [
   {
     path: '/BrowseQuiz',
     name: 'BrowseQuiz',
-    component: () => import('../views/BrowseQuiz.vue')
+    component:BrowseQuiz
   },
   {
     path: '/FirstQuiz',
