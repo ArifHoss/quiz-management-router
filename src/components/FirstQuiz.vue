@@ -74,7 +74,7 @@ export default {
     },
     onClickAnswer2() {
       if (
-        this.questions[this.questionCounter].a1 ===
+        this.questions[this.questionCounter].a2 ===
         this.questions[this.questionCounter].correct_answer
       ) {
         this.scoreCounter++
@@ -87,7 +87,7 @@ export default {
     },
     onClickAnswer3() {
       if (
-        this.questions[this.questionCounter].a1 ===
+        this.questions[this.questionCounter].a3 ===
         this.questions[this.questionCounter].correct_answer
       ) {
         this.scoreCounter++
@@ -100,7 +100,7 @@ export default {
     },
     onClickAnswer4() {
       if (
-        this.questions[this.questionCounter].a1 ===
+        this.questions[this.questionCounter].a4 ===
         this.questions[this.questionCounter].correct_answer
       ) {
         this.scoreCounter++
