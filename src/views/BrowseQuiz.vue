@@ -1,13 +1,11 @@
 <template>
-<h1>Quiz Bank</h1>
+  <h1>Quiz Bank</h1>
 </template>
 
 <script>
 export default {
-  name: "BrowseQuiz"
+  name: 'BrowseQuiz',
 }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

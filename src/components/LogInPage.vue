@@ -5,24 +5,21 @@
     <button>Log in</button>
     <p></p>
     <button>Create User</button>
-    <hr>
+    <hr />
     <p>Free learning!</p>
     <p>Learning by doing!</p>
     <p>Fun for the whole family</p>
-    <img alt="Vue logo" src="../img/family.png">
+    <img alt="Vue logo" src="../img/family.png" />
   </div>
-
 </template>
 
 <script>
 export default {
-  name: "LogInPage",
+  name: 'LogInPage',
   props: {
-    msg: String
-  }
+    msg: String,
+  },
 }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

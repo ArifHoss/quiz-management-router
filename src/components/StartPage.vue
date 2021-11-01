@@ -1,12 +1,7 @@
 <template>
   <div class="hello">
-
     <h1>{{ msg }}</h1>
 
-      <article class="startQuiz">
-        <p>Lägg in quiz</p>
-      </article>
-
     <article class="startQuiz">
       <p>Lägg in quiz</p>
     </article>
@@ -15,7 +10,9 @@
       <p>Lägg in quiz</p>
     </article>
 
-
+    <article class="startQuiz">
+      <p>Lägg in quiz</p>
+    </article>
   </div>
 </template>
 
@@ -23,8 +20,8 @@
 export default {
   name: 'StartPage',
   props: {
-    msg: String
-  }
+    msg: String,
+  },
 }
 </script>
 
