@@ -79,7 +79,6 @@ export default {
       ) {
         this.scoreCounter++
       }
-      console.log(this.questions[this.questionCounter].correct_answer)
       if (this.questionCounter === 9) {
         this.gameOver = true
       } else {
