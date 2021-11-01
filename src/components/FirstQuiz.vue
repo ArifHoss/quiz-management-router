@@ -3,23 +3,21 @@
     <hr />
 
     <div v-if="loading">Loading...</div>
-    <div>
+    <div v-else v-html="questions[0].question">
       <!-- Only first Question is displayed -->
-      <h3>
-        {{ questions[0].question }}
-      </h3>
-      <button>
-        {{ questions[0].a1 }}
-      </button>
-      <button>
-        {{ questions[0].a2 }}
-      </button>
-      <button>
-        {{ questions[0].a3 }}
-      </button>
-      <button>
-        {{ questions[0].a4 }}
-      </button>
+<!--      <h3>{{ questions[0].question }}</h3>-->
+<!--      <button>-->
+<!--        {{ questions[0].a1 }}-->
+<!--      </button>-->
+<!--      <button>-->
+<!--        {{ questions[0].a2 }}-->
+<!--      </button>-->
+<!--      <button>-->
+<!--        {{ questions[0].a3 }}-->
+<!--      </button>-->
+<!--      <button>-->
+<!--        {{ questions[0].a4 }}-->
+<!--      </button>-->
     </div>
     <hr />
   </div>
@@ -40,7 +38,10 @@ export default {
       let response = await fetch('http://127.0.0.1:3000/api/quizzes/10')
       // let response = await fetch("https://opentdb.com/api.php?amount=10&category=9")
       let jsonResponse = await response.json()
-      let data = jsonResponse.quiz
+      let data = jsonResponse.quiz.map((question)=>{
+        question.answers=[question.correct_answer, question.incorrect_answers]
+        return question
+      })
       this.questions = data
       this.loading = false
     },
@@ -53,6 +54,6 @@ export default {
 
 <style scoped>
 h2 {
-  font-family: Georgia, Helvetica, Arial, san-serif;
+  font-family: Georgia, Helvetica, Arial, san-serif
 }
 </style>
