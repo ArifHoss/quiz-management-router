@@ -14,13 +14,13 @@
         <button @click="onClickAnswer1">
           {{ questions[questionCounter].a1 }}
         </button>
-        <button @click="onClickAnswer1">
+        <button @click="onClickAnswer2">
           {{ questions[questionCounter].a2 }}
         </button>
-        <button @click="onClickAnswer1">
+        <button @click="onClickAnswer3">
           {{ questions[questionCounter].a3 }}
         </button>
-        <button @click="onClickAnswer1">
+        <button @click="onClickAnswer4">
           {{ questions[questionCounter].a4 }}
         </button>
       </div>
@@ -79,6 +79,7 @@ export default {
       ) {
         this.scoreCounter++
       }
+      console.log(this.questions[this.questionCounter].correct_answer)
       if (this.questionCounter === 9) {
         this.gameOver = true
       } else {
