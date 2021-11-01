@@ -5,21 +5,30 @@
     <div v-if="loading">Loading...</div>
     <div v-else>
       <!-- Only first Question is displayed -->
-      <h3>
-        {{ questions[0].question }}
-      </h3>
-      <button>
-        {{ questions[0].a1 }}
-      </button>
-      <button>
-        {{ questions[0].a2 }}
-      </button>
-      <button>
-        {{ questions[0].a3 }}
-      </button>
-      <button>
-        {{ questions[0].a4 }}
-      </button>
+      <p>Score: {{ scoreCounter }} / 10</p>
+      <div v-if="!gameOver">
+        <h2>Question {{ questionCounter + 1 }}</h2>
+        <h3>
+          {{ questions[questionCounter].question }}
+        </h3>
+        <button @click="onClickAnswer1">
+          {{ questions[questionCounter].a1 }}
+        </button>
+        <button @click="onClickAnswer1">
+          {{ questions[questionCounter].a2 }}
+        </button>
+        <button @click="onClickAnswer1">
+          {{ questions[questionCounter].a3 }}
+        </button>
+        <button @click="onClickAnswer1">
+          {{ questions[questionCounter].a4 }}
+        </button>
+      </div>
+      <div v-else>
+        <h3>Good Job!</h3>
+
+        <button @click="onClickRestart">Restart</button>
+      </div>
     </div>
     <hr />
   </div>
@@ -32,6 +41,9 @@ export default {
     return {
       questions: [],
       loading: true,
+      gameOver: false,
+      questionCounter: 0,
+      scoreCounter: 0,
     }
   },
   methods: {
@@ -43,6 +55,61 @@ export default {
       let data = jsonResponse.quiz
       this.questions = data
       this.loading = false
+    },
+    onClickRestart() {
+      window.location.reload()
+    },
+    onClickAnswer1() {
+      if (
+        this.questions[this.questionCounter].a1 ===
+        this.questions[this.questionCounter].correct_answer
+      ) {
+        this.scoreCounter++
+      }
+      if (this.questionCounter === 9) {
+        this.gameOver = true
+      } else {
+        this.questionCounter++
+      }
+    },
+    onClickAnswer2() {
+      if (
+        this.questions[this.questionCounter].a1 ===
+        this.questions[this.questionCounter].correct_answer
+      ) {
+        this.scoreCounter++
+      }
+      if (this.questionCounter === 9) {
+        this.gameOver = true
+      } else {
+        this.questionCounter++
+      }
+    },
+    onClickAnswer3() {
+      if (
+        this.questions[this.questionCounter].a1 ===
+        this.questions[this.questionCounter].correct_answer
+      ) {
+        this.scoreCounter++
+      }
+      if (this.questionCounter === 9) {
+        this.gameOver = true
+      } else {
+        this.questionCounter++
+      }
+    },
+    onClickAnswer4() {
+      if (
+        this.questions[this.questionCounter].a1 ===
+        this.questions[this.questionCounter].correct_answer
+      ) {
+        this.scoreCounter++
+      }
+      if (this.questionCounter === 9) {
+        this.gameOver = true
+      } else {
+        this.questionCounter++
+      }
     },
   },
   mounted() {
