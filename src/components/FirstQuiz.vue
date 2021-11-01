@@ -3,7 +3,7 @@
     <hr />
 
     <div v-if="loading">Loading...</div>
-    <div>
+    <div v-else>
       <!-- Only first Question is displayed -->
       <h3>
         {{ questions[0].question }}
