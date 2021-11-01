@@ -14,13 +14,13 @@
         <button @click="onClickAnswer1">
           {{ questions[questionCounter].a1 }}
         </button>
-        <button @click="onClickAnswer1">
+        <button @click="onClickAnswer2">
           {{ questions[questionCounter].a2 }}
         </button>
-        <button @click="onClickAnswer1">
+        <button @click="onClickAnswer3">
           {{ questions[questionCounter].a3 }}
         </button>
-        <button @click="onClickAnswer1">
+        <button @click="onClickAnswer4">
           {{ questions[questionCounter].a4 }}
         </button>
       </div>
@@ -74,11 +74,12 @@ export default {
     },
     onClickAnswer2() {
       if (
-        this.questions[this.questionCounter].a1 ===
+        this.questions[this.questionCounter].a2 ===
         this.questions[this.questionCounter].correct_answer
       ) {
         this.scoreCounter++
       }
+      console.log(this.questions[this.questionCounter].correct_answer)
       if (this.questionCounter === 9) {
         this.gameOver = true
       } else {
@@ -87,7 +88,7 @@ export default {
     },
     onClickAnswer3() {
       if (
-        this.questions[this.questionCounter].a1 ===
+        this.questions[this.questionCounter].a3 ===
         this.questions[this.questionCounter].correct_answer
       ) {
         this.scoreCounter++
@@ -100,7 +101,7 @@ export default {
     },
     onClickAnswer4() {
       if (
-        this.questions[this.questionCounter].a1 ===
+        this.questions[this.questionCounter].a4 ===
         this.questions[this.questionCounter].correct_answer
       ) {
         this.scoreCounter++
