@@ -1,39 +1,46 @@
 <template>
   <div>
-    <h2>Djur Quiz</h2>
+    <hr>
 
-    <ul>
-      <li v-for="food in foods" v-bind:key="food.id">
-        <h4>{{food.question}}</h4>
-        <p>{{food.a1}}</p>
-
-      </li>
-    </ul>
-
+    <div v-if="loading">Loading...</div>
+    <div v-else v-html="questions[0].question">
+      <!-- Only first Question is displayed -->
+    </div>
+    <hr>
   </div>
 </template>
 
 <script>
 export default {
   name: "FirstQuiz",
-  data: function () {
+  data() {
     return {
-      foods: []
+      questions: [],
+      loading: true
 
-    }
+    };
+  },
+  methods:{
+    async fetchQuestions(){
+      this.loading=true;
+       let response = await fetch("http://127.0.0.1:3000/api/quiz/");
+     // let response = await fetch("https://opentdb.com/api.php?amount=10&category=9")
+      let jsonResponse = await response.json();
+      let data = jsonResponse.results.map((question) =>{
+        question.answers = [question.correct_answer, question.incorrect_answers]
+        return question;
+      })
+      this.questions = data;
+      this.loading = false;
+    },
+
   },
   mounted() {
-    fetch('http://127.0.0.1:3000/api/quiz/')
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          console.log(data.quiz);
-          this.foods = data.quiz;
-        });
+    this.fetchQuestions();
+
   }
 
-}
+};
 </script>
 
 <style scoped>
