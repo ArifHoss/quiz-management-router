@@ -2,9 +2,9 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <h3>Digital Learning for kids</h3>
-    <button>Log in</button>
+    <router-link to="../Login"><button>Log In</button></router-link>
     <p></p>
-    <button>Create User</button>
+    <router-link to="../SignUp"><button>Sign Up</button></router-link>
     <hr />
     <p>Free learning!</p>
     <p>Learning by doing!</p>
@@ -18,6 +18,15 @@ export default {
   name: 'LogInPage',
   props: {
     msg: String,
+  },
+  data() {
+    return {
+      userState: {},
+    }
+  },
+  mounted() {
+    this.userState = this.$store.getters.getUser
+    console.log(this.userState)
   },
 }
 </script>

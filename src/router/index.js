@@ -1,7 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import BrowseQuiz from '@/views/BrowseQuiz'
+import BrowseQuiz from '../views/BrowseQuiz'
+import SignUp from '../views/SignUp'
+import Login from '../views/Login'
+import FirstQuiz from '../components/FirstQuiz'
 
 Vue.use(VueRouter)
 
@@ -22,7 +25,17 @@ const routes = [
   {
     path: '/FirstQuiz',
     name: 'FirstQuiz',
-    component: () => import('../components/FirstQuiz.vue'),
+    component: FirstQuiz,
+  },
+  {
+    path: '/SignUp',
+    name: 'SignUp',
+    component: SignUp,
+  },
+  {
+    path: '/Login',
+    name: 'Login',
+    component: Login,
   },
 ]
 
