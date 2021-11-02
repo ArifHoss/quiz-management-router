@@ -19,8 +19,8 @@
           >
             Karin Ismael,
           </a>
-          <a href="#" target="_blank"> Jonathan Lissman & </a>
-          <a href="#" target="_blank"> Tobias Ekman </a>
+          <a href="#" target=""> Jonathan Lissman & </a>
+          <a href="#" target=""> Tobias Ekman </a>
         </p>
       </footer>
     </div>
@@ -51,10 +51,10 @@
 }
 
 footer {
-  position: fixed;
+  position: fixed ;
   bottom: 0;
   padding: 0.5rem 1rem;
-  width: 100%;
+  width: 90%;
   font-size: 0.7rem;
   background-color: rgb(102, 255, 166);
 }

@@ -1,13 +1,16 @@
 <template>
-  <div>
+  <div id="quiz-bank">
+    <div class="correctAnswers">
+      You have <strong>{{scoreCounter}} correct!</strong>
+    </div>
+    <div class="correctAnswers">Currently at question {{questionCounter + 1}}/ 10</div>
     <hr />
-
     <div v-if="loading">Loading...</div>
     <div v-else>
       <!-- Only first Question is displayed -->
-      <p>Score: {{ scoreCounter }} / 10</p>
+<!--      <p>Score: {{ scoreCounter }} / 10</p>-->
       <div v-if="!gameOver">
-        <h2>Question {{ questionCounter + 1 }}</h2>
+<!--        <h2>Question {{ questionCounter + 1 }}</h2>-->
         <h3>
           {{ questions[questionCounter].question }}
         </h3>
@@ -23,7 +26,10 @@
         <button @click="onClickAnswer4">
           {{ questions[questionCounter].a4 }}
         </button>
+
+        <button @click="questionCounter++">Next</button>
       </div>
+
       <div v-else>
         <h3>Good Job!</h3>
 
@@ -68,8 +74,6 @@ export default {
       }
       if (this.questionCounter === 9) {
         this.gameOver = true
-      } else {
-        this.questionCounter++
       }
     },
     onClickAnswer2() {
@@ -82,8 +86,6 @@ export default {
       console.log(this.questions[this.questionCounter].correct_answer)
       if (this.questionCounter === 9) {
         this.gameOver = true
-      } else {
-        this.questionCounter++
       }
     },
     onClickAnswer3() {
@@ -95,8 +97,6 @@ export default {
       }
       if (this.questionCounter === 9) {
         this.gameOver = true
-      } else {
-        this.questionCounter++
       }
     },
     onClickAnswer4() {
@@ -108,8 +108,6 @@ export default {
       }
       if (this.questionCounter === 9) {
         this.gameOver = true
-      } else {
-        this.questionCounter++
       }
     },
   },
@@ -120,6 +118,7 @@ export default {
 </script>
 
 <style scoped>
+
 h2 {
   font-family: Georgia, Helvetica, Arial, san-serif;
 }
