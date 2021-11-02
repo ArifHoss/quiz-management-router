@@ -51,7 +51,7 @@
 }
 
 footer {
-  position: fixed ;
+  position: fixed;
   bottom: 0;
   padding: 0.5rem 1rem;
   width: 90%;

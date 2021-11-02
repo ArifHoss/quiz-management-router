@@ -1,7 +1,7 @@
 <template>
   <div id="quiz-bank">
     <div class="correctAnswers">
-      You have <strong>{{scoreCounter}} correct!</strong>
+      You have <strong>{{scoreCounter}} correct answers!</strong>
     </div>
     <div class="correctAnswers">Currently at question {{questionCounter + 1}}/ 10</div>
     <hr />
@@ -56,7 +56,6 @@ export default {
     async fetchQuestions() {
       this.loading = true
       let response = await fetch('http://127.0.0.1:3000/api/quizzes/10')
-      // let response = await fetch("https://opentdb.com/api.php?amount=10&category=9")
       let jsonResponse = await response.json()
       let data = jsonResponse.quiz
       this.questions = data
@@ -117,6 +116,9 @@ export default {
 </script>
 
 <style scoped>
+button{
+  padding: 20px;
+}
 
 h2 {
   font-family: Georgia, Helvetica, Arial, san-serif;
