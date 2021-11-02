@@ -53,13 +53,15 @@
 footer {
   position: fixed;
   bottom: 0;
+  left: auto;
   padding: 0.5rem 1rem;
+  margin-left: 0px;
   width: 90%;
   font-size: 0.7rem;
   background-color: rgb(102, 255, 166);
+  border: solid black;
 }
-
 #createdBy {
-  float: right;
+  float: bottom;
 }
 </style>

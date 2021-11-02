@@ -64,6 +64,7 @@ export default {
     onClickRestart() {
       window.location.reload()
     },
+
     onClickAnswer1() {
       if (
         this.questions[this.questionCounter].a1 ===
