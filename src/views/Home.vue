@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <LogInPage msg="Welcome" />
+    <LogInPage />
     <StartPage />
   </div>
 </template>
@@ -19,5 +19,4 @@ export default {
 }
 </script>
 
-<style>
-</style>
+<style></style>

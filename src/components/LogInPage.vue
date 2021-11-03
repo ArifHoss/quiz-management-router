@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <h1>Welcome {{ user.username }}</h1>
     <h3>Digital Learning for kids</h3>
     <router-link to="../Login"><button>Log In</button></router-link>
     <p></p>
@@ -9,7 +9,7 @@
     <p>Free learning!</p>
     <p>Learning by doing!</p>
     <p>Fun for the whole family</p>
-    <img alt="Vue logo" src="../img/family.png" />
+    <img alt="Happy children laughing lying in grass" src="../img/family.png" />
   </div>
 </template>
 
@@ -21,12 +21,11 @@ export default {
   },
   data() {
     return {
-      userState: {},
+      user: '',
     }
   },
   mounted() {
-    this.userState = this.$store.getters.getUser
-    console.log(this.userState)
+    this.user = this.$store.getters.getUser
   },
 }
 </script>

@@ -13,8 +13,6 @@
       <input v-on:change="clearErrors" type="password" name="password" v-model="password" />
       <input @click="onClickLogin" type="button" value="Sign In" />
     </form>
-    <h2>USER:</h2>
-    <p>{{ user.username }}</p>
   </div>
 </template>
 
@@ -39,7 +37,6 @@ export default {
       this.clearErrors()
       if(this.username && this.password){
         this.getUser(this.username, this.password)
-        this.user = this.$store.getUser
       } else {
         this.errors.push('You need to provide username & password')
       }
@@ -53,6 +50,7 @@ export default {
         .then((data) => {
           if(data.user) {
             this.user = data.user
+            this.$store.commit('changeUserValue', this.user)
           } else {
             this.errors.push(data.message)
           }
