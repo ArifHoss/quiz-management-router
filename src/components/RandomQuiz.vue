@@ -5,6 +5,8 @@
   </div>
   <div class="correctAnswers">Currently at question {{questionCounter + 1}}/ 10</div>
 
+  <div v-if="fetching">Fetching...</div>
+  <div v-else v-html="questions[0].question"></div>
 
 </div>
 </template>
@@ -31,6 +33,9 @@ export default {
       this.questions = data
       this.fetching = false
     }
+  },
+  mounted() {
+    this.fetchQuestions()
   }
 }
 </script>
