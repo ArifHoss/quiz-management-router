@@ -1,15 +1,15 @@
 <template>
   <div class="container">
     <div v-if="errors.length">
-        <b>Please correct the following error(s):</b>
-        <ul>
-          <li v-for="error in errors" :key="error">{{ error }}</li>
-        </ul>
+      <b>Please correct the following error(s):</b>
+      <ul>
+        <li v-for="error in errors" :key="error">{{ error }}</li>
+      </ul>
     </div>
     <form>
-      <label >Username</label>
+      <label>Username</label>
       <input v-on:change="clearErrors" type="text" v-model="username" />
-      <label >Password</label>
+      <label>Password</label>
       <input v-on:change="clearErrors" type="password" v-model="password" />
       <input @click="onClickLogin" type="button" value="Sign In" />
     </form>
@@ -28,19 +28,18 @@ export default {
         questionsAnswered: 0,
         questionsCorrect: 0,
       },
-      errors: []
+      errors: [],
     }
   },
   methods: {
     onClickLogin(e) {
       e.preventDefault()
       this.clearErrors()
-      if(this.username && this.password){
+      if (this.username && this.password) {
         this.getUser(this.username, this.password)
       } else {
         this.errors.push('You need to provide username & password')
       }
-      
     },
     async getUser(username, password) {
       await fetch('http://localhost:3000/api/user/' + username + '/' + password)
@@ -48,7 +47,7 @@ export default {
           return response.json()
         })
         .then((data) => {
-          if(data.user) {
+          if (data.user) {
             this.user = data.user
             this.$store.commit('changeUserValue', this.user)
           } else {
@@ -58,7 +57,7 @@ export default {
     },
     clearErrors() {
       this.errors = []
-    }
+    },
   },
 }
 </script>

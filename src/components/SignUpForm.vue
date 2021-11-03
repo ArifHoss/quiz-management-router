@@ -9,21 +9,21 @@
         </ul>
       </div>
       <form @submit="onClickSubmit">
-        <label >Email</label>
+        <label>Email</label>
         <input
           v-model="signupData.email"
           type="text"
           name="email"
           placeholder="Email"
         />
-        <label >Username</label>
+        <label>Username</label>
         <input
           v-model="signupData.username"
           type="text"
           name="username"
           placeholder="Username"
         />
-        <label >Password</label>
+        <label>Password</label>
         <input
           v-model="signupData.password"
           type="password"
@@ -51,9 +51,7 @@ export default {
         password: '',
       },
       isCreated: false,
-      errors: [
-
-      ]
+      errors: [],
     }
   },
   methods: {
@@ -74,17 +72,21 @@ export default {
     },
     onClickSubmit(e) {
       this.errors = []
-      if(this.signupData.username && this.signupData.email && this.signupData.password) {
+      if (
+        this.signupData.username &&
+        this.signupData.email &&
+        this.signupData.password
+      ) {
         this.isCreated = true
         this.postUser(this.signupData)
       }
-      if(!this.signupData.username) {
+      if (!this.signupData.username) {
         this.errors.push('Username required')
       }
-      if(!this.signupData.email) {
+      if (!this.signupData.email) {
         this.errors.push('Email required')
       }
-      if(!this.signupData.password) {
+      if (!this.signupData.password) {
         this.errors.push('Password is required')
       }
       e.preventDefault()
