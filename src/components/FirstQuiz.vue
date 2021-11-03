@@ -1,13 +1,16 @@
 <template>
-  <div>
+  <div id="quiz-bank">
+    <div class="correctAnswers">
+      You have <strong>{{scoreCounter}} correct answers!</strong>
+    </div>
+    <div class="correctAnswers">Currently at question {{questionCounter + 1}}/ 10</div>
     <hr />
-
     <div v-if="loading">Loading...</div>
     <div v-else>
       <!-- Only first Question is displayed -->
-      <p>Score: {{ scoreCounter }} / 10</p>
+<!--      <p>Score: {{ scoreCounter }} / 10</p>-->
       <div v-if="!gameOver">
-        <h2>Question {{ questionCounter + 1 }}</h2>
+<!--        <h2>Question {{ questionCounter + 1 }}</h2>-->
         <h3>
           {{ questions[questionCounter].question }}
         </h3>
@@ -23,7 +26,10 @@
         <button @click="onClickAnswer4">
           {{ questions[questionCounter].a4 }}
         </button>
+
+        <button @click="questionCounter++">Next</button>
       </div>
+
       <div v-else>
         <h3>Good Job!</h3>
 
@@ -50,7 +56,6 @@ export default {
     async fetchQuestions() {
       this.loading = true
       let response = await fetch('http://127.0.0.1:3000/api/quizzes/10')
-      // let response = await fetch("https://opentdb.com/api.php?amount=10&category=9")
       let jsonResponse = await response.json()
       let data = jsonResponse.quiz
       this.questions = data
@@ -59,6 +64,7 @@ export default {
     onClickRestart() {
       window.location.reload()
     },
+
     onClickAnswer1() {
       if (
         this.questions[this.questionCounter].a1 ===
@@ -68,8 +74,6 @@ export default {
       }
       if (this.questionCounter === 9) {
         this.gameOver = true
-      } else {
-        this.questionCounter++
       }
     },
     onClickAnswer2() {
@@ -81,8 +85,6 @@ export default {
       }
       if (this.questionCounter === 9) {
         this.gameOver = true
-      } else {
-        this.questionCounter++
       }
     },
     onClickAnswer3() {
@@ -94,8 +96,6 @@ export default {
       }
       if (this.questionCounter === 9) {
         this.gameOver = true
-      } else {
-        this.questionCounter++
       }
     },
     onClickAnswer4() {
@@ -107,8 +107,6 @@ export default {
       }
       if (this.questionCounter === 9) {
         this.gameOver = true
-      } else {
-        this.questionCounter++
       }
     },
   },
@@ -119,6 +117,10 @@ export default {
 </script>
 
 <style scoped>
+button{
+  padding: 20px;
+}
+
 h2 {
   font-family: Georgia, Helvetica, Arial, san-serif;
 }
