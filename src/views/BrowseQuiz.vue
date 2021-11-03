@@ -1,16 +1,14 @@
 <template>
  <div>
-   <RandomQuiz/>
+   <router-link to="../RandomQuiz"><img src="../img/halloweenfilmandtvpreview.png" alt=""></router-link>
  </div>
 </template>
 
 <script>
-import RandomQuiz from "@/components/RandomQuiz";
+
 export default {
   name: 'BrowseQuiz',
-  components:{
-    RandomQuiz
-  }
+
 }
 </script>
 
