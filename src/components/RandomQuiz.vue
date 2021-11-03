@@ -5,8 +5,24 @@
   </div>
   <div class="correctAnswers">Currently at question {{questionCounter + 1}}/ 10</div>
 
-  <div v-if="fetching">Fetching...</div>
-  <div v-else v-html="questions[0].question"></div>
+<!--  <div v-if="fetching">Fetching...</div>-->
+<!--  <div v-else v-html="questions[0].question"></div>-->
+  <div>
+    <h3 v-html="fetching ? 'Loading quiz....' : thisQuestion.question"></h3>
+    <table v-if="thisQuestion">
+      <button
+      v-for="answer in thisQuestion.answers"
+      :questionCounter="thisQuestion.key"
+      :key="answer"
+      v-html="answer"
+      @click.prevent="onClickAnswer"
+      ></button>
+      <hr>
+      <button @click="questionCounter++">Next</button>
+    </table>
+  </div>
+
+
 
 </div>
 </template>
@@ -17,8 +33,17 @@ export default {
   data(){
     return{
       questions: [],
-      fetching: true
+      fetching: true,
+      questionCounter: 0
 
+    }
+  },
+  computed:{
+    thisQuestion(){
+      if(this.questions !==[]){
+        return this.questions[this.questionCounter]
+      }
+      return null
     }
   },
   methods:{
