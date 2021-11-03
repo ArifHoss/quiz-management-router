@@ -12,4 +12,16 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+
+/*tablet*/
+@media screen and (min-width: 786px) and (max-width: 1024px){
+
+}
+
+/*desktop*/
+@media screen and (min-width: 1025px){
+
+}
+
+</style>

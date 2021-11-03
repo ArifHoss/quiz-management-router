@@ -1,4 +1,5 @@
 <template>
+  <section class="app">
 <div class="quiz-bank">
   <div class="correctAnswers">
     You have <strong>{{scoreCounter}} correct answers!</strong>
@@ -8,7 +9,8 @@
 <!--  <div v-if="fetching">Fetching...</div>-->
 <!--  <div v-else v-html="questions[0].question"></div>-->
 <!--  <div v-if="!gameOver">-->
-  <div>
+
+  <div class="quix-box">
     <h3 v-html="fetching ? 'Loading quiz....' : thisQuestion.question"></h3>
     <table v-if="thisQuestion">
       <button
@@ -16,9 +18,9 @@
       :questionCounter="thisQuestion.key"
       :key="answer"
       v-html="answer"
-      @click.prevent="clickDisable"
-      ></button>
-      <hr>
+      @click.prevent="clickDisable">
+      </button>
+      <hr class="line">
       <button @click="questionCounter++">Next</button>
     </table>
   </div>
@@ -30,6 +32,7 @@
 
 
 </div>
+  </section>
 </template>
 
 <script>
@@ -133,6 +136,19 @@ export default {
 
 <style scoped>
 
+body{
+  background-color: mintcream;
+}
+template{
+  background-color: mintcream;
+}
+.app{
+  text-align: center;
+}
+.quix-box{
+  display: grid;
+}
+
 button.correctAnswer{
   animation: flashButton;
   animation-duration: 700ms;
@@ -168,6 +184,16 @@ button.displayCorrectAnswer{
       rgba(0, 178, 72, 0.25),
       rgba(0, 178, 72, 0.5)
   );
+}
+
+/*tablet*/
+@media screen and (min-width: 786px) and (max-width: 1024px){
+
+}
+
+/*desktop*/
+@media screen and (min-width: 1025px){
+
 }
 
 </style>

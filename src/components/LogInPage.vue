@@ -5,7 +5,7 @@
     <router-link to="../Login"><button>Log In</button></router-link>
     <p></p>
     <router-link to="../SignUp"><button>Sign Up</button></router-link>
-    <hr />
+    <hr class="line"/>
     <p>Free learning!</p>
     <p>Learning by doing!</p>
     <p>Fun for the whole family</p>
