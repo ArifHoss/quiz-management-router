@@ -17,10 +17,6 @@
         <p>
           {{answers}}
         </p>
-        <button @click="t" v-for:="question.">
-        </button>
-
-
         <button @click="onClickAnswer1">
           {{ questions[questionCounter].a1 }}
         </button>
@@ -33,7 +29,7 @@
         <button @click="onClickAnswer4">
           {{ questions[questionCounter].a4 }}
         </button>
-
+        <hr>
         <button @click="questionCounter++">Next</button>
       </div>
 
@@ -57,7 +53,6 @@ export default {
       gameOver: false,
       questionCounter: 0,
       scoreCounter: 0,
-      answers: []
     }
   },
   methods: {
