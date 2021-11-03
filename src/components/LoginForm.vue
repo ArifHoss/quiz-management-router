@@ -1,16 +1,16 @@
 <template>
   <div class="container">
-    <p v-if="errors.length">
+    <div v-if="errors.length">
         <b>Please correct the following error(s):</b>
         <ul>
           <li v-for="error in errors" :key="error">{{ error }}</li>
         </ul>
-    </p>
+    </div>
     <form>
-      <label for="username">Username</label>
-      <input v-on:change="clearErrors" type="text" name="username" v-model="username" />
-      <label for="password">Password</label>
-      <input v-on:change="clearErrors" type="password" name="password" v-model="password" />
+      <label >Username</label>
+      <input v-on:change="clearErrors" type="text" v-model="username" />
+      <label >Password</label>
+      <input v-on:change="clearErrors" type="password" v-model="password" />
       <input @click="onClickLogin" type="button" value="Sign In" />
     </form>
   </div>

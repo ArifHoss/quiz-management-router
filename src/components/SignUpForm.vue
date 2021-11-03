@@ -2,35 +2,32 @@
   <div class="container">
     <div v-if="!isCreated">
       <h1>Sign Up</h1>
-      <p v-if="errors.length">
+      <div v-if="errors.length">
         <b>Please correct the following error(s):</b>
         <ul>
           <li v-for="error in errors" :key="error">{{ error }}</li>
         </ul>
-      </p>
+      </div>
       <form @submit="onClickSubmit">
-        <label for="username">Email</label>
+        <label >Email</label>
         <input
           v-model="signupData.email"
           type="text"
           name="email"
-          id=""
           placeholder="Email"
         />
-        <label for="username">Username</label>
+        <label >Username</label>
         <input
           v-model="signupData.username"
           type="text"
           name="username"
-          id=""
           placeholder="Username"
         />
-        <label for="username">Password</label>
+        <label >Password</label>
         <input
           v-model="signupData.password"
           type="password"
           name="password"
-          id=""
           placeholder="Password"
         />
         <input type="submit" value="Sign Up" />
