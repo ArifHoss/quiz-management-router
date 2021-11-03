@@ -1,10 +1,16 @@
 <template>
-  <h1>Quiz Bank</h1>
+ <div>
+   <RandomQuiz/>
+ </div>
 </template>
 
 <script>
+import RandomQuiz from "@/components/RandomQuiz";
 export default {
   name: 'BrowseQuiz',
+  components:{
+    RandomQuiz
+  }
 }
 </script>
 
