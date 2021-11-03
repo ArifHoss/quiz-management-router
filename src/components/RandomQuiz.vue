@@ -7,6 +7,7 @@
 
 <!--  <div v-if="fetching">Fetching...</div>-->
 <!--  <div v-else v-html="questions[0].question"></div>-->
+<!--  <div v-if="!gameOver">-->
   <div>
     <h3 v-html="fetching ? 'Loading quiz....' : thisQuestion.question"></h3>
     <table v-if="thisQuestion">
@@ -21,6 +22,10 @@
       <button @click="questionCounter++">Next</button>
     </table>
   </div>
+<!--  <div v-else>-->
+<!--    <h3>Nice Job!</h3>-->
+<!--    <button @click="onClickRestart">Restart</button>-->
+<!--  </div>-->
 
 
 
@@ -34,7 +39,10 @@ export default {
     return{
       questions: [],
       fetching: true,
-      questionCounter: 0
+      //gameOver: false,
+      questionCounter: 0,
+      scoreCounter: 0
+
 
     }
   },
@@ -44,7 +52,8 @@ export default {
         return this.questions[this.questionCounter]
       }
       return null
-    }
+    },
+
   },
   methods:{
     async  fetchQuestions(){
@@ -63,6 +72,9 @@ export default {
       this.questions = data
       this.fetching = false
     },
+    onClickRestart() {
+    window.location.reload()
+      },
     clickDisable: function (event){
       let questionCounter = event.target.getAttribute("questionCounter")
       let polutedUserAnswer = event.target.innerHTML
@@ -72,17 +84,30 @@ export default {
 
       let allButtons = document.querySelectorAll(`[questionCounter="${questionCounter}"]`)
       for (let i = 0; i < allButtons.length; i++) {
-        if(allButtons[i] === event.target) continue
+        //if(allButtons[i] === event.target) continue
         allButtons[i].setAttribute("disabled", "")
       }
       this.onClickAnswer(event, questionCounter)
     },
+
     onClickAnswer: function (event, questionCounter){
       let question = this.questions[questionCounter]
 
-      if(question.submittedAnswer === question.corrct_answer){
+      if(question.submittedAnswer){
+        if(this.questionCounter < this.questions.length -1){
+          setTimeout(
+              function (){
+                this.questionCounter +=1
+              }.bind(this),
+              20000
+          )
+        }
+      }
+
+      if(question.submittedAnswer === question.correct_answer){
         event.target.classList.add("correctAnswer")
         this.questions[questionCounter].correctAnswer = true
+        this.scoreCounter++
       }else {
         event.target.classList.add("incorrectAnswer")
         this.questions[questionCounter].correctAnswer = false
@@ -91,10 +116,13 @@ export default {
         allAnswers.forEach(function (button){
           if(button.innerHTML === showCorrectAnswer){
             button.classList.add("displayCorrectAnswer")
+
           }
         })
       }
-
+      // if (this.questionCounter === 9) {
+      //   this.gameOver = true
+      // }
     }
   },
   mounted() {
@@ -104,5 +132,42 @@ export default {
 </script>
 
 <style scoped>
+
+button.correctAnswer{
+  animation: flashButton;
+  animation-duration: 700ms;
+  animation-delay: 200ms;
+  animation-iteration-count: 3;
+  animation-timing-function: ease-in-out;
+  color: black;
+  background: linear-gradient(
+      210deg,
+      rgba(0, 178, 72, 0.25),
+      rgba(0, 178, 72, 0.5)
+  );
+}
+
+button.incorrectAnswer{
+  color: black;
+  background: linear-gradient(
+      210deg,
+      rgba(245, 0, 87, 0.25),
+      rgba(245, 0, 87, 0.5)
+  );
+}
+
+button.displayCorrectAnswer{
+  animation: flashButton;
+  animation-duration: 700ms;
+  animation-delay: 200ms;
+  animation-iteration-count: 2;
+  animation-timing-function: ease-in-out;
+  color: black;
+  background: linear-gradient(
+      210deg,
+      rgba(0, 178, 72, 0.25),
+      rgba(0, 178, 72, 0.5)
+  );
+}
 
 </style>
