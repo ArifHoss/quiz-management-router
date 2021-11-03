@@ -1,10 +1,14 @@
 <template>
-  <h1>Quiz Bank</h1>
+ <div>
+   <router-link to="../RandomQuiz"><img src="../img/halloweenfilmandtvpreview.png" alt=""></router-link>
+ </div>
 </template>
 
 <script>
+
 export default {
   name: 'BrowseQuiz',
+
 }
 </script>
 
