@@ -4,7 +4,7 @@
       You have <strong>{{scoreCounter}} correct answers!</strong>
     </div>
     <div class="correctAnswers">Currently at question {{questionCounter + 1}}/ 10</div>
-    <hr />
+    <hr class = line />
     <div v-if="loading">Loading...</div>
     <div v-else>
       <!-- Only first Question is displayed -->
@@ -29,7 +29,7 @@
         <button @click="onClickAnswer4">
           {{ questions[questionCounter].a4 }}
         </button>
-        <hr>
+        <hr class="line"/>
         <button @click="questionCounter++">Next</button>
       </div>
 
@@ -39,7 +39,7 @@
         <button @click="onClickRestart">Restart</button>
       </div>
     </div>
-    <hr />
+    <hr class="line"/>
   </div>
 </template>
 

@@ -1,12 +1,38 @@
 <template>
+  <section class="app">
 <div class="quiz-bank">
   <div class="correctAnswers">
     You have <strong>{{scoreCounter}} correct answers!</strong>
   </div>
   <div class="correctAnswers">Currently at question {{questionCounter + 1}}/ 10</div>
 
+<!--  <div v-if="fetching">Fetching...</div>-->
+<!--  <div v-else v-html="questions[0].question"></div>-->
+<!--  <div v-if="!gameOver">-->
+
+  <div class="quix-box">
+    <h3 v-html="fetching ? 'Loading quiz....' : thisQuestion.question"></h3>
+    <table v-if="thisQuestion">
+      <button
+      v-for="answer in thisQuestion.answers"
+      :questionCounter="thisQuestion.key"
+      :key="answer"
+      v-html="answer"
+      @click.prevent="clickDisable">
+      </button>
+      <hr class="line">
+      <button @click="questionCounter++">Next</button>
+    </table>
+  </div>
+<!--  <div v-else>-->
+<!--    <h3>Nice Job!</h3>-->
+<!--    <button @click="onClickRestart">Restart</button>-->
+<!--  </div>-->
+
+
 
 </div>
+  </section>
 </template>
 
 <script>
@@ -15,26 +41,159 @@ export default {
   data(){
     return{
       questions: [],
-      fetching: true
+      fetching: true,
+      //gameOver: false,
+      questionCounter: 0,
+      scoreCounter: 0
+
 
     }
+  },
+  computed:{
+    thisQuestion(){
+      if(this.questions !==[]){
+        return this.questions[this.questionCounter]
+      }
+      return null
+    },
+
   },
   methods:{
     async  fetchQuestions(){
       this.fetching = true
       let res = await fetch("http://127.0.0.1:3000/api/quizzes/10")
       let jsonRes = await res.json()
+      let questionCounter = 0
       let data = jsonRes.quiz.map((question) =>{
         question.answers = [ question.a1,question.a2, question.a3, question.a4]
+
+        question.correctAnswer = null
+        question.key = questionCounter
+        questionCounter++
         return question
       })
       this.questions = data
       this.fetching = false
+    },
+    onClickRestart() {
+    window.location.reload()
+      },
+    clickDisable: function (event){
+      let questionCounter = event.target.getAttribute("questionCounter")
+      let polutedUserAnswer = event.target.innerHTML
+      let submittedAnswer = polutedUserAnswer.replace(/'/, "&#039;")
+      this.questions[questionCounter].submittedAnswer = submittedAnswer
+      event.target.classList.add("clicked")
+
+      let allButtons = document.querySelectorAll(`[questionCounter="${questionCounter}"]`)
+      for (let i = 0; i < allButtons.length; i++) {
+        //if(allButtons[i] === event.target) continue
+        allButtons[i].setAttribute("disabled", "")
+      }
+      this.onClickAnswer(event, questionCounter)
+    },
+
+    onClickAnswer: function (event, questionCounter){
+      let question = this.questions[questionCounter]
+
+      if(question.submittedAnswer){
+        if(this.questionCounter < this.questions.length -1){
+          setTimeout(
+              function (){
+                this.questionCounter +=1
+              }.bind(this),
+              20000
+          )
+        }
+      }
+
+      if(question.submittedAnswer === question.correct_answer){
+        event.target.classList.add("correctAnswer")
+        this.questions[questionCounter].correctAnswer = true
+        this.scoreCounter++
+      }else {
+        event.target.classList.add("incorrectAnswer")
+        this.questions[questionCounter].correctAnswer = false
+        let showCorrectAnswer = this.questions[questionCounter].correct_answer
+        let allAnswers = document.querySelectorAll(`[questionCounter="${questionCounter}"]`)
+        allAnswers.forEach(function (button){
+          if(button.innerHTML === showCorrectAnswer){
+            button.classList.add("displayCorrectAnswer")
+
+          }
+        })
+      }
+      // if (this.questionCounter === 9) {
+      //   this.gameOver = true
+      // }
     }
+  },
+  mounted() {
+    this.fetchQuestions()
   }
 }
 </script>
 
 <style scoped>
+
+body{
+  background-color: mintcream;
+}
+template{
+  background-color: mintcream;
+}
+.app{
+  text-align: center;
+}
+.quix-box{
+  display: grid;
+}
+
+button.correctAnswer{
+  animation: flashButton;
+  animation-duration: 700ms;
+  animation-delay: 200ms;
+  animation-iteration-count: 3;
+  animation-timing-function: ease-in-out;
+  color: black;
+  background: linear-gradient(
+      210deg,
+      rgba(0, 178, 72, 0.25),
+      rgba(0, 178, 72, 0.5)
+  );
+}
+
+button.incorrectAnswer{
+  color: black;
+  background: linear-gradient(
+      210deg,
+      rgba(245, 0, 87, 0.25),
+      rgba(245, 0, 87, 0.5)
+  );
+}
+
+button.displayCorrectAnswer{
+  animation: flashButton;
+  animation-duration: 700ms;
+  animation-delay: 200ms;
+  animation-iteration-count: 2;
+  animation-timing-function: ease-in-out;
+  color: black;
+  background: linear-gradient(
+      210deg,
+      rgba(0, 178, 72, 0.25),
+      rgba(0, 178, 72, 0.5)
+  );
+}
+
+/*tablet*/
+@media screen and (min-width: 786px) and (max-width: 1024px){
+
+}
+
+/*desktop*/
+@media screen and (min-width: 1025px){
+
+}
 
 </style>
