@@ -6,11 +6,11 @@
 }*/
 #nav{
     padding: 30px;
-    background-color: #cbf6e1;
+    background-color: white;
 }
 
 body{
-    background-color: #99ccb3;
+    background-color: white;
     /*font-family: 'DM Sans', sans-serif;*/
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;

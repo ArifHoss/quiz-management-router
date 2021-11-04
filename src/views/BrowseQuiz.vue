@@ -1,5 +1,5 @@
 <template>
- <div>
+ <div class="container">
    <router-link to="../RandomQuiz"><img src="../img/halloweenfilmandtvpreview.png" alt=""></router-link>
  </div>
 </template>
@@ -13,6 +13,15 @@ export default {
 </script>
 
 <style scoped>
+
+.container {
+  margin-top: 20px;
+  width: 100%;
+}
+
+img {
+  width: 95%;
+}
 
 /*tablet*/
 @media screen and (min-width: 786px) and (max-width: 1024px){
