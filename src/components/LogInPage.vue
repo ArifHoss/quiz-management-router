@@ -58,6 +58,7 @@ button {
   background-color: white;
   color: #5bc293;
   font-weight: bolder;
+  padding: 0;
 }
 button:hover {
   color: white;
