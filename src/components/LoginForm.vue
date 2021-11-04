@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <h1>Log in</h1>
     <div v-if="errors.length">
       <b>Please correct the following error(s):</b>
       <ul>
@@ -8,10 +9,20 @@
     </div>
     <form>
       <label>Username</label>
-      <input v-on:change="clearErrors" type="text" v-model="username" />
+      <input
+        v-on:change="clearErrors"
+        type="text"
+        placeholder="Username"
+        v-model="username"
+      />
       <label>Password</label>
-      <input v-on:change="clearErrors" type="password" v-model="password" />
-      <input @click="onClickLogin" type="button" value="Sign In" />
+      <input
+        v-on:change="clearErrors"
+        type="password"
+        placeholder="Password"
+        v-model="password"
+      />
+      <input @click="onClickLogin" class="btn" type="button" value="Log In" />
     </form>
   </div>
 </template>
@@ -25,10 +36,9 @@ export default {
       password: '',
       user: {
         username: '',
-        questionsAnswered: 0,
-        questionsCorrect: 0,
       },
       errors: [],
+      isLoading: false,
     }
   },
   methods: {
@@ -54,6 +64,9 @@ export default {
             this.errors.push(data.message)
           }
         })
+      if (this.user.username !== '') {
+        this.$router.push('/')
+      }
     },
     clearErrors() {
       this.errors = []
@@ -66,16 +79,15 @@ export default {
 .container {
   display: flex;
   flex-direction: column;
-  height: 500px;
-  width: 500px;
-  margin: auto;
+  width: 70%;
+  margin: 50px auto auto auto;
 }
 form {
   display: flex;
   flex-direction: column;
 }
 input {
-  margin-bottom: 5px;
+  margin-top: 5px;
   width: 100%;
   border-radius: 4px;
   outline: none;
@@ -83,5 +95,22 @@ input {
   box-sizing: border-box;
   transition: 0.3s;
   border: 1px solid;
+}
+label {
+  margin-top: 10px;
+}
+.btn {
+  margin-top: 20px;
+  width: 100%;
+  height: 40px;
+  border: 2px solid #5bc293;
+  border-radius: 5px;
+  background-color: white;
+  color: #5bc293;
+  font-weight: bolder;
+}
+.btn:hover {
+  color: white;
+  background-color: #5bc293;
 }
 </style>

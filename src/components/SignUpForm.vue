@@ -30,12 +30,14 @@
           name="password"
           placeholder="Password"
         />
-        <input type="submit" value="Sign Up" />
+        <input class="btn" type="submit" value="Sign Up" />
       </form>
     </div>
     <div v-else>
       <h1>User Created</h1>
-      <router-link to="/">Return</router-link>
+      <router-link to="../Login">
+        <button class="btn">Log in</button>
+      </router-link>
     </div>
   </div>
 </template>
@@ -99,16 +101,15 @@ export default {
 .container {
   display: flex;
   flex-direction: column;
-  height: 500px;
-  width: 500px;
-  margin: auto;
+  width: 70%;
+  margin: 50px auto auto auto;
 }
 form {
   display: flex;
   flex-direction: column;
 }
 input {
-  margin-bottom: 5px;
+  margin-top: 5px;
   width: 100%;
   border-radius: 4px;
   outline: none;
@@ -116,5 +117,22 @@ input {
   box-sizing: border-box;
   transition: 0.3s;
   border: 1px solid;
+}
+label {
+  margin-top: 10px;
+}
+.btn {
+  margin-top: 20px;
+  width: 100%;
+  height: 40px;
+  border: 2px solid #5bc293;
+  border-radius: 5px;
+  background-color: white;
+  color: #5bc293;
+  font-weight: bolder;
+}
+.btn:hover {
+  color: white;
+  background-color: #5bc293;
 }
 </style>

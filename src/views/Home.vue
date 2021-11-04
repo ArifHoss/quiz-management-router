@@ -1,7 +1,9 @@
 <template>
-  <div class="home">
-    <LogInPage />
-    <StartPage />
+  <div>
+    <div class="home">
+      <LogInPage />
+      <StartPage />
+    </div>
   </div>
 </template>
 

@@ -1,10 +1,6 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="../BrowseQuiz">Browse Quiz</router-link> |
-      <router-link to="../FirstQuiz">Quiz Sida</router-link>
-    </div>
+    <NavBar />
     <router-view />
     <footer>
       <p id="createdBy">
@@ -28,12 +24,11 @@
 </template>
 
 <script>
+import NavBar from './components/NavBar.vue'
 
 export default {
-  data() {
-    return {
-      
-    }
+  components: {
+    NavBar,
   },
 }
 </script>
@@ -63,13 +58,15 @@ export default {
 footer {
   position: fixed;
   bottom: 0;
+  left: auto;
   padding: 0.5rem 1rem;
-  width: 100%;
+  margin-left: 0px;
+  width: 90%;
   font-size: 0.7rem;
   background-color: rgb(102, 255, 166);
+  border: solid black;
 }
-
 #createdBy {
-  float: right;
+  float: bottom;
 }
 </style>
