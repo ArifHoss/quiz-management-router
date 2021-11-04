@@ -16,11 +16,6 @@
           </router-link>
         </li>
         <li class="nav-item">
-          <router-link to="../FirstQuiz">
-            <div @click="toggleHamburger" class="nav-link">Quiz Page</div>
-          </router-link>
-        </li>
-        <li class="nav-item">
           <a href="#" class="nav-link">My Profile</a>
         </li>
       </ul>
@@ -160,6 +155,6 @@ a {
   .hamburger.active .bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
   }
-  
+
 }
 </style>

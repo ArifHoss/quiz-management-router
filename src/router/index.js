@@ -4,7 +4,6 @@ import Home from '../views/Home.vue'
 import BrowseQuiz from '../views/BrowseQuiz'
 import SignUp from '../views/SignUp'
 import Login from '../views/Login'
-import FirstQuiz from '../components/FirstQuiz'
 import RandomQuiz from "@/components/RandomQuiz";
 
 Vue.use(VueRouter)
@@ -24,11 +23,6 @@ const routes = [
     component: BrowseQuiz,
   },
   {
-    path: '/FirstQuiz',
-    name: 'FirstQuiz',
-    component: FirstQuiz,
-  },
-  {
     path: '/SignUp',
     name: 'SignUp',
     component: SignUp,
@@ -42,6 +36,7 @@ const routes = [
     path: '/RandomQuiz',
     name: 'RandomQuiz',
     component: RandomQuiz,
+    props: true
   }
 ]
 

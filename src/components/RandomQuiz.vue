@@ -37,6 +37,9 @@
 <script>
 export default {
   name: 'RandomQuiz',
+  props: {
+    apiUrl: String
+  },
   data() {
     return {
       questions: [],
@@ -57,7 +60,8 @@ export default {
   methods: {
     async fetchQuestions() {
       this.fetching = true
-      let res = await fetch('http://127.0.0.1:3000/api/quizzes/10')
+      console.log(this.apiUrl)
+      let res = await fetch('http://127.0.0.1:3000/api/' + this.apiUrl)
       let jsonRes = await res.json()
       let questionCounter = 0
       let data = jsonRes.quiz.map((question) => {

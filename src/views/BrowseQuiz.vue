@@ -1,19 +1,30 @@
 <template>
- <div class="container">
-   <router-link to="../RandomQuiz"><img src="../img/halloweenfilmandtvpreview.png" alt=""></router-link>
- </div>
+  <div class="container">
+    <h3>Random Quiz</h3>
+    <router-link :to="{ name: 'RandomQuiz', params: { apiUrl: 'quizzes/10' } }">
+      <img src="../img/halloweenfilmandtvpreview.png" alt="" />
+    </router-link>
+    <h3>
+      Sports Quiz
+    </h3>
+    <router-link :to="{ name: 'RandomQuiz', params: { apiUrl: 'quizzes/get/category/sports/10' } }">
+      <img src="../img/General.png" alt="" />
+    </router-link>
+  </div>
 </template>
 
 <script>
-
 export default {
   name: 'BrowseQuiz',
-  
+  data() {
+    return {
+      apiUrl: '',
+    }
+  },
 }
 </script>
 
 <style scoped>
-
 .container {
   margin-top: 20px;
   width: 100%;
@@ -21,16 +32,14 @@ export default {
 
 img {
   width: 95%;
+  max-width: 600px;
 }
 
 /*tablet*/
-@media screen and (min-width: 786px) and (max-width: 1024px){
-
+@media screen and (min-width: 786px) and (max-width: 1024px) {
 }
 
 /*desktop*/
-@media screen and (min-width: 1025px){
-
+@media screen and (min-width: 1025px) {
 }
-
 </style>
