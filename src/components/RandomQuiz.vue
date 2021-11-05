@@ -10,11 +10,11 @@
 
       <!--  <div v-if="fetching">Fetching...</div>-->
       <!--  <div v-else v-html="questions[0].question"></div>-->
-<!--      <div v-if="!gameOver">-->
+      <!--      <div v-if="!gameOver">-->
 
       <div v-if="!gameOver" class="quix-box">
         <h3 v-html="fetching ? 'Loading quiz....' : thisQuestion.question"></h3>
-        <table v-if="thisQuestion">
+        <div class="alternatives" v-if="thisQuestion">
           <button
             v-for="answer in thisQuestion.answers"
             :questionCounter="thisQuestion.key"
@@ -26,17 +26,16 @@
           <button @click="questionCounter++">Next</button>
           <button @click="onClickBack">Back</button>
           <button @click="onClickRestart">Restart</button>
-        </table>
-
+        </div>
       </div>
 
       <div v-else>
         <p>Quiz over!</p>
-        <p>You got {{scoreCounter}} points!<p/>
+        <p>You got {{ scoreCounter }} points!</p>
+        <p />
         <p>Score saved to account</p>
         <button @click="onClickBack">Back</button>
       </div>
-
 
       <!--  <div v-else>-->
       <!--    <h3>Nice Job!</h3>-->
@@ -50,7 +49,7 @@
 export default {
   name: 'RandomQuiz',
   props: {
-    apiUrl: String
+    apiUrl: String,
   },
   data() {
     return {
@@ -87,28 +86,37 @@ export default {
       this.fetching = false
     },
     onClickRestart() {
-      this.saveScore()
-      this.scoreCounter =0
-      this.questionCounter=0
+      this.scoreCounter = 0
+      this.questionCounter = 0
       this.fetchQuestions()
     },
     async saveScore() {
       let user = this.$store.getters.getUser
-      let score = parseInt(this.scoreCounter) + parseInt(user["questions_correct"])
-      let questions = parseInt(this.questionCounter) + parseInt(user["questions_answered"])
-      user["questions_correct"] = score
-      user["questions_answered"] = questions
+      let score =
+        parseInt(this.scoreCounter) + parseInt(user['questions_correct'])
+      let questions =
+        parseInt(this.questionCounter) + parseInt(user['questions_answered'])
+      user['questions_correct'] = score
+      user['questions_answered'] = questions
 
-      let data = {"user_id":user["id"], "questions_answered":score, "questions_correct":questions}
+      let data = {
+        user_id: user['id'],
+        questions_answered: score,
+        questions_correct: questions,
+      }
       await fetch('http://127.0.0.1:3000/api/user/stats', {
-          method: 'PUT',
-          headers: {
-        'Content-Type': 'application/json',
-      },
-          body: JSON.stringify(data)})
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
       this.$store.commit('changeUserValue', user)
     },
-    onClickBack(){
+    onClickBack() {
+      if(this.$store.getters.getUser.username) {
+        this.saveScore()
+      }
       this.$router.push('BrowseQuiz')
     },
     clickDisable: function(event) {
@@ -131,7 +139,7 @@ export default {
     onClickAnswer: function(event, questionCounter) {
       let question = this.questions[questionCounter]
 
-     /* if (question.submittedAnswer) {
+      /* if (question.submittedAnswer) {
         if (this.questionCounter < this.questions.length - 1) {
           setTimeout(
             function() {
@@ -146,7 +154,6 @@ export default {
         event.target.classList.add('correctAnswer')
         this.questions[questionCounter].correctAnswer = true
         this.scoreCounter++
-
       } else {
         event.target.classList.add('incorrectAnswer')
         this.questions[questionCounter].correctAnswer = false
@@ -161,7 +168,7 @@ export default {
         })
       }
       if (this.questionCounter === 9) {
-      this.gameOver = true
+        this.gameOver = true
       }
     },
   },
@@ -180,9 +187,27 @@ template {
 }
 .app {
   text-align: center;
+  margin-top: 40px;
+}
+
+h3 {
+  margin-top: 20px;
+  height: 50px;
+  font-size: 1.2rem;
 }
 .quix-box {
   display: grid;
+}
+.alternatives {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  align-items: center;
+}
+button {
+  width: 85%;
+  max-width: 500px;
+  font-size: 1rem;
 }
 
 button.correctAnswer {
