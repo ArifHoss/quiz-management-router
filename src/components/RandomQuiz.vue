@@ -78,9 +78,26 @@ export default {
       this.fetching = false
     },
     onClickRestart() {
+      this.saveScore()
       this.scoreCounter =0
       this.questionCounter=0
       this.fetchQuestions()
+    },
+    async saveScore() {
+      let user = this.$store.getters.getUser
+      let score = parseInt(this.scoreCounter) + parseInt(user["questions_correct"])
+      let questions = parseInt(this.questionCounter) + parseInt(user["questions_answered"])
+      user["questions_correct"] = score
+      user["questions_answered"] = questions
+
+      let data = {"user_id":user["id"], "questions_answered":score, "questions_correct":questions}
+      await fetch('http://127.0.0.1:3000/api/user/stats', {
+          method: 'PUT',
+          headers: {
+        'Content-Type': 'application/json',
+      },
+          body: JSON.stringify(data)})
+      this.$store.commit('changeUserValue', user)
     },
     onClickBack(){
       this.$router.push('BrowseQuiz')
