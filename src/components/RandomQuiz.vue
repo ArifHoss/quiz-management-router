@@ -10,9 +10,9 @@
 
       <!--  <div v-if="fetching">Fetching...</div>-->
       <!--  <div v-else v-html="questions[0].question"></div>-->
-      <!--  <div v-if="!gameOver">-->
+<!--      <div v-if="!gameOver">-->
 
-      <div class="quix-box">
+      <div v-if="!gameOver" class="quix-box">
         <h3 v-html="fetching ? 'Loading quiz....' : thisQuestion.question"></h3>
         <table v-if="thisQuestion">
           <button
@@ -29,6 +29,15 @@
         </table>
 
       </div>
+
+      <div v-else>
+        <p>Quiz over!</p>
+        <p>You got {{scoreCounter}} points!<p/>
+        <p>Score saved to account</p>
+        <button @click="onClickBack">Back</button>
+      </div>
+
+
       <!--  <div v-else>-->
       <!--    <h3>Nice Job!</h3>-->
       <!--    <button @click="onClickRestart">Restart</button>-->
@@ -47,7 +56,7 @@ export default {
     return {
       questions: [],
       fetching: true,
-      //gameOver: false,
+      gameOver: false,
       questionCounter: 0,
       scoreCounter: 0,
     }
@@ -122,7 +131,7 @@ export default {
     onClickAnswer: function(event, questionCounter) {
       let question = this.questions[questionCounter]
 
-      if (question.submittedAnswer) {
+     /* if (question.submittedAnswer) {
         if (this.questionCounter < this.questions.length - 1) {
           setTimeout(
             function() {
@@ -131,12 +140,13 @@ export default {
             20000
           )
         }
-      }
+      }*/
 
       if (question.submittedAnswer === question.correct_answer) {
         event.target.classList.add('correctAnswer')
         this.questions[questionCounter].correctAnswer = true
         this.scoreCounter++
+
       } else {
         event.target.classList.add('incorrectAnswer')
         this.questions[questionCounter].correctAnswer = false
@@ -150,9 +160,9 @@ export default {
           }
         })
       }
-      // if (this.questionCounter === 9) {
-      //   this.gameOver = true
-      // }
+      if (this.questionCounter === 9) {
+      this.gameOver = true
+      }
     },
   },
   mounted() {
