@@ -24,7 +24,10 @@
           ></button>
           <hr class="line" />
           <button @click="questionCounter++">Next</button>
+          <button @click="onClickBack">Back</button>
+          <button @click="onClickRestart">Restart</button>
         </table>
+
       </div>
       <!--  <div v-else>-->
       <!--    <h3>Nice Job!</h3>-->
@@ -75,12 +78,17 @@ export default {
       this.fetching = false
     },
     onClickRestart() {
-      window.location.reload()
+      this.scoreCounter =0
+      this.questionCounter=0
+      this.fetchQuestions()
+    },
+    onClickBack(){
+      this.$router.push('BrowseQuiz')
     },
     clickDisable: function(event) {
       let questionCounter = event.target.getAttribute('questionCounter')
-      let polutedUserAnswer = event.target.innerHTML
-      let submittedAnswer = polutedUserAnswer.replace(/'/, '&#039;')
+      let userAnswer = event.target.innerHTML
+      let submittedAnswer = userAnswer.replace(/'/, '&#039;')
       this.questions[questionCounter].submittedAnswer = submittedAnswer
       event.target.classList.add('clicked')
 

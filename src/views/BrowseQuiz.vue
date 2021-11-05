@@ -35,6 +35,8 @@ img {
   max-width: 600px;
 }
 
+
+
 /*tablet*/
 @media screen and (min-width: 786px) and (max-width: 1024px) {
 }
