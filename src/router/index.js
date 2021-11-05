@@ -5,6 +5,7 @@ import BrowseQuiz from '../views/BrowseQuiz'
 import SignUp from '../views/SignUp'
 import Login from '../views/Login'
 import RandomQuiz from "@/components/RandomQuiz";
+import User from "@/views/User"
 
 Vue.use(VueRouter)
 
@@ -37,7 +38,12 @@ const routes = [
     name: 'RandomQuiz',
     component: RandomQuiz,
     props: true
-  }
+  },
+  {
+    path: '/user',
+    name: 'User',
+    component: User,
+  },
 ]
 
 const router = new VueRouter({

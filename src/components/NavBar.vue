@@ -15,9 +15,24 @@
             <div @click="toggleHamburger" class="nav-link">Browse Quiz</div>
           </router-link>
         </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">My Profile</a>
-        </li>
+        <div
+          class="logged-in"
+          v-if="Object.entries(this.$store.getters.getUser).length !== 0"
+        >
+          <li class="nav-item">
+            <router-link to="../user">
+              <div @click="toggleHamburger" class="nav-link">My Profile</div>
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <button @click="logOut" class="sign-out">Log Out</button>
+          </li>
+        </div>
+        <div v-else>
+          <li class="nav-item">
+            <button @click="logIn">Log In</button>
+          </li>
+        </div>
       </ul>
       <div
         @click="toggleHamburger"
@@ -43,6 +58,20 @@ export default {
     toggleHamburger() {
       this.isActive = !this.isActive
     },
+    logIn() {
+      this.toggleHamburger()
+      if (this.$router.currentRoute.path !== '/Login') {
+        this.$router.push('/Login')
+      }
+    },
+    logOut() {
+      let newUser = {}
+      this.$store.commit('changeUserValue', newUser)
+      this.toggleHamburger()
+      if (this.$router.currentRoute.path !== '/') {
+        this.$router.push('/')
+      }
+    },
   },
 }
 </script>
@@ -59,6 +88,12 @@ export default {
 header {
   font-size: 62.5%;
   font-family: 'Roboto', sans-serif;
+}
+
+.logged-in {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
 }
 
 li {
@@ -117,6 +152,30 @@ a {
   color: #5bc293;
 }
 
+button {
+  width: 120px;
+  height: 40px;
+  border: 2px solid #5bc293;
+  border-radius: 5px;
+  background-color: white;
+  color: #5bc293;
+  font-weight: bolder;
+  padding: 0;
+}
+button:hover {
+  color: white;
+  background-color: #5bc293;
+}
+.sign-out {
+  border: 2px solid #f25e60;
+  background-color: white;
+  color: #f25e60;
+}
+.sign-out:hover {
+  color: white;
+  background-color: #f25e60;
+}
+
 @media only screen and (max-width: 768px) {
   .nav-menu {
     position: fixed;
@@ -129,6 +188,10 @@ a {
     text-align: center;
     transition: 0.3s;
     box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+  }
+
+  .logged-in {
+    display: inline;
   }
 
   .nav-menu.active {
@@ -155,6 +218,5 @@ a {
   .hamburger.active .bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
   }
-
 }
 </style>

@@ -60,7 +60,6 @@ export default {
   methods: {
     async fetchQuestions() {
       this.fetching = true
-      console.log(this.apiUrl)
       let res = await fetch('http://127.0.0.1:3000/api/' + this.apiUrl)
       let jsonRes = await res.json()
       let questionCounter = 0

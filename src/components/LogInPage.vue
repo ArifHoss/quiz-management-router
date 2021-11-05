@@ -1,10 +1,7 @@
 <template>
   <div class="hello">
-    <h1>Welcome {{ user.username }}</h1>
-    <div v-if="isLoggedIn">
-      <button @click="logOut" class="sign-out">Log Out</button>
-    </div>
-    <div v-else>
+    <h1>Welcome {{ this.$store.getters.getUser.username }}</h1>
+    <div v-if="Object.entries(this.$store.getters.getUser).length === 0">
       <router-link to="../Login"><button>Log In</button></router-link>
       <p></p>
       <router-link to="../SignUp"><button>Sign Up</button></router-link>
@@ -22,30 +19,6 @@
 <script>
 export default {
   name: 'LogInPage',
-  props: {
-    msg: String,
-  },
-  data() {
-    return {
-      user: {
-        username: '',
-      },
-      isLoggedIn: false,
-    }
-  },
-  methods: {
-    logOut() {
-      let newUser = {}
-      this.$store.commit('changeUserValue', newUser)
-      window.location.reload()
-    },
-  },
-  mounted() {
-    this.user = this.$store.getters.getUser
-    if (this.user.username) {
-      this.isLoggedIn = true
-    }
-  },
 }
 </script>
 
