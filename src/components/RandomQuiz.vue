@@ -23,7 +23,7 @@
             @click.prevent="clickDisable"
           ></button>
           <hr class="line" />
-          <button @click="questionCounter++">Next</button>
+          <button @click="onClickNext">Next</button>
           <button @click="onClickBack">Back</button>
           <button @click="onClickRestart">Restart</button>
         </div>
@@ -89,6 +89,17 @@ export default {
       this.scoreCounter = 0
       this.questionCounter = 0
       this.fetchQuestions()
+    },
+    onClickNext() {
+      let allButtons = document.querySelectorAll(
+        `[questionCounter="${this.questionCounter}"]`
+      )
+      for (let i = 0; i < allButtons.length; i++) {
+        //if(allButtons[i] === event.target) continue
+        allButtons[i].removeAttribute('disabled')
+        allButtons[i].className = ''
+      }
+      this.questionCounter++
     },
     async saveScore() {
       let user = this.$store.getters.getUser
