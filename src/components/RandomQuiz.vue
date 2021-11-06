@@ -95,7 +95,6 @@ export default {
         `[questionCounter="${this.questionCounter}"]`
       )
       for (let i = 0; i < allButtons.length; i++) {
-        //if(allButtons[i] === event.target) continue
         allButtons[i].removeAttribute('disabled')
         allButtons[i].className = ''
       }
@@ -126,6 +125,7 @@ export default {
     },
     onClickBack() {
       if(this.$store.getters.getUser.username) {
+        this.questionCounter++
         this.saveScore()
       }
       this.$router.push('BrowseQuiz')
