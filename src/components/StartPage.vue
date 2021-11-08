@@ -2,7 +2,7 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
 
-    <article class="startQuiz">
+    <!-- <article class="startQuiz">
       <p>Lägg in quiz</p>
     </article>
 
@@ -12,7 +12,7 @@
 
     <article class="startQuiz">
       <p>Lägg in quiz</p>
-    </article>
+    </article> -->
   </div>
 </template>
 
