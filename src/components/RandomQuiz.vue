@@ -33,7 +33,8 @@
         <p>Quiz over!</p>
         <p>You got {{ scoreCounter }} points!</p>
         <p />
-        <p>Score saved to account</p>
+        <p v-if="Object.entries(this.$store.getters.getUser).length > 0">
+          Score saved to account</p>
         <button @click="onClickBack">Back</button>
       </div>
 

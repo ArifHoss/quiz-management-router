@@ -24,6 +24,9 @@
       />
       <input @click="onClickLogin" class="btn" type="button" value="Log In" />
     </form>
+    <hr>
+    <p>Dont have an account yet? Sign up below!</p>
+    <router-link to="../SignUp"><button>Sign Up</button></router-link>
   </div>
 </template>
 

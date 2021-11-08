@@ -73,6 +73,7 @@ export default {
       return response.json()
     },
     onClickSubmit(e) {
+      const mailformat = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
       this.errors = []
       if (
         this.signupData.username &&
@@ -84,6 +85,9 @@ export default {
       }
       if (!this.signupData.username) {
         this.errors.push('Username required')
+      }
+      if(!this.signupData.email.match(mailformat)){
+        this.errors.push('Enter valid Email')
       }
       if (!this.signupData.email) {
         this.errors.push('Email required')

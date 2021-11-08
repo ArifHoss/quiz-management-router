@@ -30,7 +30,7 @@
         </div>
         <div v-else>
           <li class="nav-item">
-            <button @click="logIn">Log In</button>
+            <button @click="logIn">Log In/Sign up</button>
           </li>
         </div>
       </ul>
