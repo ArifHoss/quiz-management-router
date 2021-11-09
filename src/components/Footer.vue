@@ -38,11 +38,5 @@ footer {
   float: bottom;
 }
 
-a {
-  text-decoration: none;
-  color: #163d3d;
-}
-a:visited {
-  color: #163d3d;
-}
+
 </style>

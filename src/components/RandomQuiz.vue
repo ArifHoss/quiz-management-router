@@ -1,18 +1,16 @@
 <template>
   <section class="app">
     <div class="quiz-bank">
-      <div class="correctAnswers">
-        You have <strong>{{ scoreCounter }} correct answers!</strong>
-      </div>
-      <div class="correctAnswers">
-        Currently at question {{ questionCounter + 1 }}/ 10
-      </div>
-
       <!--  <div v-if="fetching">Fetching...</div>-->
       <!--  <div v-else v-html="questions[0].question"></div>-->
       <!--      <div v-if="!gameOver">-->
-
       <div v-if="!gameOver" class="quix-box">
+        <div class="correctAnswers">
+          You have <strong>{{ scoreCounter }} correct answers!</strong>
+        </div>
+        <div class="correctAnswers">
+          Currently at question {{ questionCounter + 1 }}/ 10
+        </div>
         <h3 v-html="fetching ? 'Loading quiz....' : thisQuestion.question"></h3>
         <div class="alternatives" v-if="thisQuestion">
           <button
@@ -34,10 +32,11 @@
         <p>You got {{ scoreCounter }} points!</p>
         <p />
         <p v-if="Object.entries(this.$store.getters.getUser).length > 0">
-          Score saved to account</p>
+          Score saved to account
+        </p>
         <div class="endbuttons">
-        <button @click="onClickBack">Browse Quizzes</button>
-        <button @click="onClickRestart">Start another quiz</button>
+          <button @click="onClickBack">Browse Quizzes</button>
+          <button @click="onClickRestart">Start another quiz</button>
         </div>
       </div>
 
@@ -128,10 +127,6 @@ export default {
       this.$store.commit('changeUserValue', user)
     },
     onClickBack() {
-      if(this.$store.getters.getUser.username) {
-        this.questionCounter++
-        this.saveScore()
-      }
       this.$router.push('BrowseQuiz')
     },
     clickDisable: function(event) {
@@ -184,6 +179,10 @@ export default {
       }
       if (this.questionCounter === 9) {
         this.gameOver = true
+        if (this.$store.getters.getUser.username) {
+          this.questionCounter++
+          this.saveScore()
+        }
       }
     },
   },
@@ -229,10 +228,7 @@ button {
   flex-direction: column;
   gap: 0.7rem;
   align-items: center;
-
-
 }
-
 
 button.correctAnswer {
   animation: flashButton;

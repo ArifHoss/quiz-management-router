@@ -12,7 +12,7 @@
         <label>Email</label>
         <input
           v-model="signupData.email"
-          type="text"
+          type="email"
           name="email"
           placeholder="Email"
         />

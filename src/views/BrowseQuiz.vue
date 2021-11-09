@@ -7,7 +7,7 @@
     </router-link>
     
     <div v-if="Object.entries(this.$store.getters.getUser).length === 0">
-      <h3>Create an account and log in to get all quizzes!</h3>
+      <h3><router-link to="../SignUp">Create </router-link>an account and log in to get all quizzes!</h3>
     </div>
     <div v-else>
 

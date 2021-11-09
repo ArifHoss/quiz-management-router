@@ -5,8 +5,9 @@
     background-color: #cbf6e1;
 }*/
 
-html, body {
-    height: 100%;
+html,
+body {
+  height: 100%;
 }
 
 body {
@@ -36,6 +37,14 @@ button {
 img {
   border-radius: 10px;
   border: solid #09523c;
+}
+
+a {
+  text-decoration: none;
+  color: #163d3d;
+}
+a:visited {
+  color: #163d3d;
 }
 
 /*tablet*/
