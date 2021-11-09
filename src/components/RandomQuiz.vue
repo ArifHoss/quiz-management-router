@@ -35,7 +35,10 @@
         <p />
         <p v-if="Object.entries(this.$store.getters.getUser).length > 0">
           Score saved to account</p>
-        <button @click="onClickBack">Back</button>
+        <div class="endbuttons">
+        <button @click="onClickBack">Browse Quizzes</button>
+        <button @click="onClickRestart">Start another quiz</button>
+        </div>
       </div>
 
       <!--  <div v-else>-->
@@ -221,6 +224,15 @@ button {
   max-width: 500px;
   font-size: 1rem;
 }
+.endbuttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  align-items: center;
+
+
+}
+
 
 button.correctAnswer {
   animation: flashButton;
