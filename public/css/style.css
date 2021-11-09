@@ -1,3 +1,5 @@
+/*För alla devices */
+/*MobileFirst */
 @import url('https://fonts.googleapis.com/css2?family=Arbutus+Slab&family=DM+Sans:wght@500&display=swap');
 
 /*nav{
@@ -49,8 +51,34 @@ a:visited {
 
 /*tablet*/
 @media screen and (min-width: 786px) and (max-width: 1024px) {
+  /*Ändrar font storlek */
+  h1{
+    font-size: 30px;
+  }
+  h3{
+    font-size: 30px;
+  }
+  p{
+    font-size: 14px;
+  }
+  a{
+    font-size: 15px;
+  }
 }
 
 /*desktop*/
 @media screen and (min-width: 1025px) {
+  h1{
+    font-size: 30px;
+  }
+  h3{
+    font-size: 30px;
+  }
+  p{
+    font-size: 14px;
+  }
+  a{
+    font-size: 15px;
+  }
+
 }
