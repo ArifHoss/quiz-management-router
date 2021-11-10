@@ -22,7 +22,7 @@
           ></button>
           <hr class="line" />
           <button @click="onClickNext">Next</button>
-          <button @click="onClickBack">Back</button>
+<!--          <button @click="onClickBack">Back</button>-->
           <button @click="onClickRestart">Restart</button>
         </div>
       </div>
@@ -35,8 +35,11 @@
           Score saved to account
         </p>
         <div class="endbuttons">
-          <button @click="onClickBack">Browse Quizzes</button>
-          <button @click="onClickRestart">Start another quiz</button>
+<!--          <button @click="onClickBack">Back</button>-->
+<!--          <button @click="onClickRestart">Restart</button>-->
+<!--          <button @click="onClickBack">Browse Quizzes</button>-->
+          <button @click="onClickBack">Want to play something else?</button>
+<!--          <button @click="onClickRestart">Start another quiz</button>-->
         </div>
       </div>
 
@@ -193,6 +196,10 @@ export default {
 </script>
 
 <style scoped>
+/*General*/
+/*MobileFirst*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap');
+
 body {
   background-color: mintcream;
 }
@@ -269,6 +276,12 @@ button.displayCorrectAnswer {
 
 /*tablet*/
 @media screen and (min-width: 786px) and (max-width: 1024px) {
+
+  button {
+    width: 30%;
+    max-width: 200px;
+    font-size: 1rem;
+  }
 }
 
 /*desktop*/

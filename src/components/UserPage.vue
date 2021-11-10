@@ -6,9 +6,7 @@
     <div v-else>
       <ul>
         <li>
-          <h3>
-            Username
-          </h3>
+          <h3> Username</h3>
           {{ user.username }}
         </li>
         <li>

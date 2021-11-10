@@ -32,6 +32,9 @@
         />
         <input class="btn" type="submit" value="Sign Up" />
       </form>
+      <hr>
+      <p>Already have an account? SignIn below!</p>
+      <router-link to="../Login"><button>Log In</button></router-link>
     </div>
     <div v-else>
       <h1>User Created</h1>

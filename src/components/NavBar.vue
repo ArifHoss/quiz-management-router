@@ -5,11 +5,12 @@
         <div class="nav-logo">SuperQuizzer</div>
       </router-link>
       <ul :class="{ 'nav-menu ': true, active: isActive }">
-        <li class="nav-item">
-          <router-link to="/">
-            <div @click="toggleHamburger" class="nav-link">Home</div>
-          </router-link>
-        </li>
+<!--        <li class="nav-item">-->
+<!--          <router-link to="/">-->
+<!--            <div @click="toggleHamburger" class="nav-link">Home</div>-->
+<!--          </router-link>-->
+<!--        </li>-->
+
         <li class="nav-item">
           <router-link to="../BrowseQuiz">
             <div @click="toggleHamburger" class="nav-link">Browse Quiz</div>

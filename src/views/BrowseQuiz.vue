@@ -7,7 +7,7 @@
     </router-link>
     
     <div v-if="Object.entries(this.$store.getters.getUser).length === 0">
-      <h3><router-link to="../SignUp">Create </router-link>an account and log in to get all quizzes!</h3>
+      <h3><router-link to="../SignUp">Create </router-link>an account or log in to get all quizzes!</h3>
     </div>
     <div v-else>
 
@@ -44,7 +44,7 @@ export default {
 
 img {
   width: 95%;
-  max-width: 600px;
+  max-width: 400px;
 }
 
 /*tablet*/
