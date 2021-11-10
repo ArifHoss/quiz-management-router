@@ -192,7 +192,7 @@ button:hover {
   background-color: #f25e60;
 }
 
-@media only screen and (max-width: 768px) {
+/*@media only screen and (max-width: 768px) {*/
   .nav-menu {
     position: fixed;
     left: -100%;
@@ -234,5 +234,5 @@ button:hover {
   .hamburger.active .bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
   }
-}
+/*}*/
 </style>
