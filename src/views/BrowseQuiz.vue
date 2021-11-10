@@ -7,7 +7,7 @@
     </router-link>
     
     <div v-if="Object.entries(this.$store.getters.getUser).length === 0">
-      <h3><router-link to="../SignUp">Create </router-link>an account or log in to get all quizzes!</h3>
+      <h3> Create an account or LogIn to get all quizzes!</h3>
     </div>
     <div v-else>
 
@@ -40,6 +40,10 @@ export default {
 .container {
   margin-top: 20px;
   width: 100%;
+}
+
+h3{
+  font-family: Consolas;
 }
 
 img {

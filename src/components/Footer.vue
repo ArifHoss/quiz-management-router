@@ -2,7 +2,7 @@
   <div>
     <footer>
       <p id="createdBy">
-        created by
+        Created by
         <a
           href="https://www.linkedin.com/in/arif-hossain-92b438206/"
           target="_blank"

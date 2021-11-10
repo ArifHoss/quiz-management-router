@@ -4,12 +4,15 @@
       <router-link to="/">
         <div class="nav-logo">SuperQuizzer</div>
       </router-link>
+      <h3>Quiz Time</h3>
+      <h3>Fun Time</h3>
+
       <ul :class="{ 'nav-menu ': true, active: isActive }">
-<!--        <li class="nav-item">-->
-<!--          <router-link to="/">-->
-<!--            <div @click="toggleHamburger" class="nav-link">Home</div>-->
-<!--          </router-link>-->
-<!--        </li>-->
+        <li class="nav-item">
+          <router-link to="/">
+            <div @click="toggleHamburger" class="nav-link">Home</div>
+          </router-link>
+        </li>
 
         <li class="nav-item">
           <router-link to="../BrowseQuiz">
@@ -90,7 +93,11 @@ header {
   font-size: 62.5%;
   font-family: 'Roboto', sans-serif;
 }
-
+h3{
+  color: #151414;
+  animation-delay: inherit;
+  font-family: Papyrus;
+}
 .logged-in {
   display: flex;
   justify-content: space-between;
@@ -149,8 +156,16 @@ a {
 
 .nav-logo {
   font-size: 2.1rem;
+  border: 2px #42b983;
   font-weight: 500;
   color: #5bc293;
+}
+.nav-logo:hover{
+  color:#f25e60;
+}
+
+.nav-logo:active{
+  color: aqua;
 }
 
 button {

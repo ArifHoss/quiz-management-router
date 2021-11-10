@@ -8,13 +8,13 @@
 <!--      <router-link to="../SignUp"><button>Sign Up</button></router-link>-->
 <!--      <hr />-->
 <!--    </div>-->
-
     <h3>Digital Learning for kids</h3>
+    <img alt="Happy children laughing lying in grass" src="../img/family.png" />
     <p>Free learning!</p>
     <p>Learning by doing!</p>
     <p>Fun for the whole family!</p>
 
-    <img alt="Happy children laughing lying in grass" src="../img/family.png" />
+
   </div>
 </template>
 
@@ -27,7 +27,7 @@ export default {
 <style scoped>
 h1{
   color: #475569;
-  font-family: "Bookman Old Style";
+  font-family: "Bauhaus 93";
 }
 h3{
   color: #475569;
@@ -35,7 +35,7 @@ h3{
 }
 p{
   color: #09523c;
-  font-family: "Book Antiqua";
+  font-family: Papyrus;
 }
 
 /*button {*/
