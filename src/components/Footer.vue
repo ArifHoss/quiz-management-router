@@ -27,12 +27,13 @@ export default {}
 
 <style scoped>
 footer {
-  padding: 0.5rem 1rem;
+  padding: 0.05rem 1rem;
   margin: 50px auto auto auto;
   width: 90%;
   font-size: 0.7rem;
   background-color: #5bc293;
   border: solid 1px black;
+  border-radius: 5px;
 }
 #createdBy {
   float: bottom;
