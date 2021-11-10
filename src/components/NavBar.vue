@@ -4,8 +4,8 @@
       <router-link to="/">
         <div class="nav-logo">SuperQuizzer</div>
       </router-link>
-      <h3>Quiz Time</h3>
-      <h3>Fun Time</h3>
+<!--      <h3>Quiz Time</h3>-->
+<!--      <h3>Fun Time</h3>-->
 
       <ul :class="{ 'nav-menu ': true, active: isActive }">
         <li class="nav-item">
@@ -95,7 +95,6 @@ header {
 }
 h3{
   color: #151414;
-  animation-delay: inherit;
   font-family: Papyrus;
 }
 .logged-in {

@@ -9,7 +9,8 @@
 <!--      <hr />-->
 <!--    </div>-->
     <h3>Digital Learning for kids</h3>
-    <img alt="Happy children laughing lying in grass" src="../img/family.png" />
+<!--    <img alt="Happy children laughing lying in grass" src="../img/family.png" />-->
+    <img alt="Happy children laughing lying in grass" src="../img/quizTime.jpg" />
     <p>Free learning!</p>
     <p>Learning by doing!</p>
     <p>Fun for the whole family!</p>
