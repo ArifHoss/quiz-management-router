@@ -53,9 +53,15 @@ img {
 
 /*tablet*/
 @media screen and (min-width: 786px) and (max-width: 1024px) {
+  img{
+    max-width: 600px;
+  }
 }
 
 /*desktop*/
 @media screen and (min-width: 1025px) {
+  img{
+    max-width: 600px;
+  }
 }
 </style>
