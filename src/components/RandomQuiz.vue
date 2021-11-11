@@ -109,6 +109,7 @@ export default {
       let jsonRes = await res.json()
       let questionCounter = 0
       let data = jsonRes.quiz.map((question) => {
+
         question.answers = [question.a1, question.a2, question.a3, question.a4]
         question.correctAnswer = null
         question.img = question.imgLink
