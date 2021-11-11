@@ -21,6 +21,21 @@
         <img src="../img/cheese.png" alt="" />
       </router-link>
 
+      <h3>Movie Quiz</h3>
+      <router-link :to="{ name: 'RandomQuiz', params: { apiUrl: 'quizzes/get/category/movies/10' } }">
+        <img src="../img/movies.jpg" alt="" />
+      </router-link>
+
+      <h3>Fruits Quiz</h3>
+      <router-link :to="{ name: 'RandomQuiz', params: { apiUrl: 'quizzes/get/category/fruits/10' } }">
+        <img src="../img/fruits.jpg" alt="" />
+      </router-link>
+
+      <h3>Image Quiz</h3>
+      <router-link :to="{ name: 'RandomQuiz', params: { apiUrl: 'quizzes/get/category/image/10' } }">
+        <img src="../img/image.jpg" alt="" />
+      </router-link>
+
     </div>
   </div>
 </template>
