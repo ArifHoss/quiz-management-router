@@ -22,24 +22,50 @@
           ></button>
           <hr class="line" />
           <button @click="onClickNext">Next</button>
-<!--          <button @click="onClickBack">Back</button>-->
+          <!--          <button @click="onClickBack">Back</button>-->
           <button @click="onClickRestart">Restart</button>
         </div>
       </div>
 
       <div v-else>
-        <p>Quiz over!</p>
-        <p>You got {{ scoreCounter }} points!</p>
-        <p />
-        <p v-if="Object.entries(this.$store.getters.getUser).length > 0">
+        <div v-if="scoreCounter >= 10">
+          <img class="medal-icon" src="../img/icons/trophy.png" alt="" />
+          <p>WOW! You got the champion trophy!</p>
+          <p>You got a perfect score, {{ scoreCounter }} out of 10!</p>
+        </div>
+        <div v-if="scoreCounter > 7 && scoreCounter < 10">
+          <img class="medal-icon" src="../img/icons/gold.png" alt="" />
+          <p>Amazing! You got the gold medal!</p>
+          <p>You got {{ scoreCounter }} out of 10!</p>
+        </div>
+        <div v-if="scoreCounter > 5 && scoreCounter < 8">
+          <img class="medal-icon" src="../img/icons/silver.png" alt="" />
+          <p>Good Job! You got the silver medal!</p>
+          <p>You got {{ scoreCounter }} out of 10!</p>
+        </div>
+        <div v-if="scoreCounter > 3 && scoreCounter < 6">
+          <img class="medal-icon" src="../img/icons/bronze.png" alt="" />
+          <p>Not bad! You got the bronze medal!</p>
+          <p>You got {{ scoreCounter }} out of 10!</p>
+        </div>
+        <div v-if="scoreCounter < 4">
+          <img class="medal-icon" src="../img/icons/ohno.png" alt="" />
+          <p>Try again! No medal this time.</p>
+          <p>You got {{ scoreCounter }} out of 10</p>
+        </div>
+
+        <p
+          class="saved-text"
+          v-if="Object.entries(this.$store.getters.getUser).length > 0"
+        >
           Score saved to account
         </p>
         <div class="endbuttons">
-<!--          <button @click="onClickBack">Back</button>-->
-<!--          <button @click="onClickRestart">Restart</button>-->
-<!--          <button @click="onClickBack">Browse Quizzes</button>-->
+          <!--          <button @click="onClickBack">Back</button>-->
+          <!--          <button @click="onClickRestart">Restart</button>-->
+          <!--          <button @click="onClickBack">Browse Quizzes</button>-->
           <button @click="onClickBack">Want to play something else?</button>
-<!--          <button @click="onClickRestart">Start another quiz</button>-->
+          <!--          <button @click="onClickRestart">Start another quiz</button>-->
         </div>
       </div>
 
@@ -274,9 +300,17 @@ button.displayCorrectAnswer {
   );
 }
 
+.medal-icon {
+  border: none;
+  width: 100px;
+}
+
+.saved-text {
+  margin-top: 100px;
+}
+
 /*tablet*/
 @media screen and (min-width: 786px) and (max-width: 1024px) {
-
   button {
     width: 30%;
     max-width: 200px;
