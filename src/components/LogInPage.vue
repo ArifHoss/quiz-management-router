@@ -1,6 +1,6 @@
-<template>
+<template class="body">
   <div class="hello">
-    <h1>Welcome {{ this.$store.getters.getUser.username }}</h1>
+    <h1>Welcome to SuperQuizzer  {{ this.$store.getters.getUser.username }}</h1>
 
 <!--    <div v-if="Object.entries(this.$store.getters.getUser).length === 0">-->
 <!--      <router-link to="../Login"><button>Log In</button></router-link>-->
@@ -8,9 +8,9 @@
 <!--      <router-link to="../SignUp"><button>Sign Up</button></router-link>-->
 <!--      <hr />-->
 <!--    </div>-->
-    <h3>Digital Learning for kids</h3>
 <!--    <img alt="Happy children laughing lying in grass" src="../img/family.png" />-->
-    <img alt="Happy children laughing lying in grass" src="../img/quizTime.jpg" />
+    <h3>Digital Learning for kids</h3>
+    <img alt="" src="../img/quizTime.jpg" />
     <p>Free learning!</p>
     <p>Learning by doing!</p>
     <p>Fun for the whole family!</p>
@@ -26,11 +26,17 @@ export default {
 </script>
 
 <style scoped>
+
+
 h1{
   color: #475569;
   font-family: "Bauhaus 93";
 }
 h3{
+  color: #475569;
+  font-family: "Bauhaus 93";
+}
+h4{
   color: #475569;
   font-family: "Bauhaus 93";
 }
@@ -66,5 +72,6 @@ p{
 img {
   width: 90%;
   max-width: 500px;
+  border: 0px;
 }
 </style>

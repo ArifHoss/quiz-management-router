@@ -12,7 +12,7 @@
           Currently at question {{ questionCounter + 1 }}/ 10
         </div>
         <h3 v-html="fetching ? 'Loading quiz....' : thisQuestion.question"></h3>
-        <p><img v-bind:src="thisQuestion.img" alt="" ></p>
+        <p><img v-bind:src="thisQuestion.img" alt=""></p>
 
         <div class="alternatives" v-if="thisQuestion">
           <button
@@ -229,7 +229,8 @@ export default {
 /*MobileFirst*/
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap');
 img {
-  width: 95%;
+  width: 85%;
+  max-height: 200px;
   max-width: 300px;
 }
 
@@ -318,14 +319,25 @@ button.displayCorrectAnswer {
 
 /*tablet*/
 @media screen and (min-width: 786px) and (max-width: 1024px) {
-  button {
-    width: 30%;
-    max-width: 200px;
-    font-size: 1rem;
+  /*button {*/
+  /*  width: 30%;*/
+  /*  max-width: 200px;*/
+  /*  font-size: 1rem;*/
+  /*}*/
+  img{
+    width: 85%;
+    max-height: 200px;
+    max-width: 500px;
   }
 }
 
 /*desktop*/
 @media screen and (min-width: 1025px) {
+
+  img{
+    width: 85%;
+    max-height: 200px;
+    max-width: 500px;
+  }
 }
 </style>

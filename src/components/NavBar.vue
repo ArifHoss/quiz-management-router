@@ -4,8 +4,8 @@
       <router-link to="/">
         <div class="nav-logo">SuperQuizzer</div>
       </router-link>
-<!--      <h3>Quiz Time</h3>-->
-<!--      <h3>Fun Time</h3>-->
+      <!--      <h3>Quiz Time</h3>-->
+      <!--      <h3>Fun Time</h3>-->
 
       <ul :class="{ 'nav-menu ': true, active: isActive }">
         <li class="nav-item">
@@ -20,8 +20,8 @@
           </router-link>
         </li>
         <div
-          class="logged-in"
-          v-if="Object.entries(this.$store.getters.getUser).length !== 0"
+            class="logged-in"
+            v-if="Object.entries(this.$store.getters.getUser).length !== 0"
         >
           <li class="nav-item">
             <router-link to="../user">
@@ -39,8 +39,8 @@
         </div>
       </ul>
       <div
-        @click="toggleHamburger"
-        :class="{ 'hamburger ': true, active: isActive }"
+          @click="toggleHamburger"
+          :class="{ 'hamburger ': true, active: isActive }"
       >
         <span class="bar"></span>
         <span class="bar"></span>
@@ -91,12 +91,16 @@ export default {
 
 header {
   font-size: 62.5%;
+  background-color: #ec797a;
+  width: 100%;
   font-family: 'Roboto', sans-serif;
 }
-h3{
+
+h3 {
   color: #151414;
   font-family: Papyrus;
 }
+
 .logged-in {
   display: flex;
   justify-content: space-between;
@@ -110,6 +114,7 @@ li {
 a {
   text-decoration: none;
 }
+
 .header {
   border-bottom: 1px solid #e2e8f0;
 }
@@ -120,6 +125,7 @@ a {
   align-items: center;
   padding: 1rem 1.5rem;
 }
+
 .hamburger {
   display: none;
 }
@@ -133,6 +139,7 @@ a {
   transition: all 0.3s ease-in-out;
   background-color: #101010;
 }
+
 .nav-menu {
   display: flex;
   justify-content: space-between;
@@ -144,6 +151,7 @@ a {
 }
 
 .nav-link {
+  font-family: Rockwell;
   font-size: 1rem;
   font-weight: 400;
   color: #475569;
@@ -154,16 +162,18 @@ a {
 }
 
 .nav-logo {
+  font-family: Rockwell;
   font-size: 2.1rem;
   border: 2px #42b983;
   font-weight: 500;
   color: #5bc293;
 }
-.nav-logo:hover{
-  color:#f25e60;
+
+.nav-logo:hover {
+  color: #f25e60;
 }
 
-.nav-logo:active{
+.nav-logo:active {
   color: aqua;
 }
 
@@ -177,21 +187,25 @@ button {
   font-weight: bolder;
   padding: 0;
 }
+
 button:hover {
   color: white;
   background-color: #5bc293;
 }
+
 .sign-out {
   border: 2px solid #f25e60;
   background-color: white;
   color: #f25e60;
 }
+
 .sign-out:hover {
   color: white;
   background-color: #f25e60;
 }
 
 @media only screen and (max-width: 768px) {
+
   .nav-menu {
     position: fixed;
     left: -100%;
@@ -216,6 +230,9 @@ button:hover {
   .nav-item {
     margin: 2.5rem 0;
   }
+  .nav-logo{
+    margin: 2.5rem 0;
+  }
 
   .hamburger {
     display: block;
@@ -233,5 +250,14 @@ button:hover {
   .hamburger.active .bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
   }
+
+}
+
+/*desktop*/
+@media screen and (min-width: 1025px){
+  .nav-link{
+    font-size: 2rem;
+  }
+
 }
 </style>

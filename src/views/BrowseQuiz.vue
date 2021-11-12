@@ -1,8 +1,9 @@
 <template>
-  <div class="container">
+  <section class="container">
 
-    <h3>Random Quiz</h3>
+
     <router-link :to="{ name: 'RandomQuiz', params: { apiUrl: 'quizzes/10' } }">
+      <h3>Random Quiz</h3>
       <img src="../img/halloweenfilmandtvpreview.png" alt="" />
     </router-link>
     
@@ -10,34 +11,34 @@
       <h3> Create an account or LogIn to get all quizzes!</h3>
     </div>
     <div v-else>
-
-      <h3>Sports Quiz</h3>
       <router-link :to="{name: 'RandomQuiz',params: { apiUrl: 'quizzes/get/category/sports/10' },}">
+        <h3>Sports Quiz</h3>
         <img src="../img/lionel-messi-quiz.jpg" alt="" />
       </router-link>
 
-      <h3>Dinosaur Quiz</h3>
       <router-link :to="{ name: 'RandomQuiz', params: { apiUrl: 'quizzes/get/category/dinosaurs/10' } }">
+        <h3>Dinosaur Quiz</h3>
         <img src="../img/cheese.png" alt="" />
       </router-link>
 
-      <h3>Movie Quiz</h3>
       <router-link :to="{ name: 'RandomQuiz', params: { apiUrl: 'quizzes/get/category/movies/10' } }">
+        <h3>Movie Quiz</h3>
         <img src="../img/avengers-quiz.jpg" alt="" />
       </router-link>
 
-      <h3>Fruits Quiz</h3>
+
       <router-link :to="{ name: 'RandomQuiz', params: { apiUrl: 'quizzes/get/category/fruits/10' } }">
+        <h3>Fruits Quiz</h3>
         <img src="../img/healthy-eating.jpg" alt="" />
       </router-link>
 
-      <h3>Image Quiz</h3>
       <router-link :to="{ name: 'RandomQuiz', params: { apiUrl: 'quizzes/get/category/image/10' } }">
+        <h3>Image Quiz</h3>
         <img src="../img/photo.jpg" alt="" />
       </router-link>
 
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -77,6 +78,15 @@ img {
 @media screen and (min-width: 1025px) {
   img{
     max-width: 600px;
+  }
+  /*section{*/
+  /*  display: grid;*/
+  /*  !*grid-template-rows: 1fr 1fr;*!*/
+  /*  grid-template-columns: 1fr 1fr;*/
+  /*}*/
+  .grid-item{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 }
 </style>
