@@ -12,6 +12,8 @@
           Currently at question {{ questionCounter + 1 }}/ 10
         </div>
         <h3 v-html="fetching ? 'Loading quiz....' : thisQuestion.question"></h3>
+        <p><img v-bind:src="thisQuestion.img" alt="" ></p>
+
         <div class="alternatives" v-if="thisQuestion">
           <button
             v-for="answer in thisQuestion.answers"
@@ -107,9 +109,10 @@ export default {
       let jsonRes = await res.json()
       let questionCounter = 0
       let data = jsonRes.quiz.map((question) => {
-        question.answers = [question.a1, question.a2, question.a3, question.a4]
 
+        question.answers = [question.a1, question.a2, question.a3, question.a4]
         question.correctAnswer = null
+        question.img = question.imgLink
         question.key = questionCounter
         questionCounter++
         return question
@@ -225,6 +228,10 @@ export default {
 /*General*/
 /*MobileFirst*/
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap');
+img {
+  width: 95%;
+  max-width: 300px;
+}
 
 body {
   background-color: mintcream;

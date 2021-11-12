@@ -13,7 +13,7 @@
 
       <h3>Sports Quiz</h3>
       <router-link :to="{name: 'RandomQuiz',params: { apiUrl: 'quizzes/get/category/sports/10' },}">
-        <img src="../img/General.png" alt="" />
+        <img src="../img/lionel-messi-quiz.jpg" alt="" />
       </router-link>
 
       <h3>Dinosaur Quiz</h3>
@@ -23,17 +23,17 @@
 
       <h3>Movie Quiz</h3>
       <router-link :to="{ name: 'RandomQuiz', params: { apiUrl: 'quizzes/get/category/movies/10' } }">
-        <img src="../img/movies.jpg" alt="" />
+        <img src="../img/avengers-quiz.jpg" alt="" />
       </router-link>
 
       <h3>Fruits Quiz</h3>
       <router-link :to="{ name: 'RandomQuiz', params: { apiUrl: 'quizzes/get/category/fruits/10' } }">
-        <img src="../img/fruits.jpg" alt="" />
+        <img src="../img/healthy-eating.jpg" alt="" />
       </router-link>
 
       <h3>Image Quiz</h3>
       <router-link :to="{ name: 'RandomQuiz', params: { apiUrl: 'quizzes/get/category/image/10' } }">
-        <img src="../img/image.jpg" alt="" />
+        <img src="../img/photo.jpg" alt="" />
       </router-link>
 
     </div>
