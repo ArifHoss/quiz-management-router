@@ -31,7 +31,7 @@ footer {
   margin: 50px auto auto auto;
   width: 90%;
   font-size: 0.7rem;
-  background-color: #5bc293;
+  background-color: #c9f6e9;
   border: solid 1px black;
   border-radius: 5px;
 }

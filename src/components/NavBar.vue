@@ -91,7 +91,7 @@ export default {
 
 header {
   font-size: 62.5%;
-  background-color: #ec797a;
+  background-color: #c9f6e9;
   width: 100%;
   font-family: 'Roboto', sans-serif;
   border-radius: 10px;
