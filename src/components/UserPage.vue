@@ -5,7 +5,8 @@
     </div>
     <div v-else>
       <ul>
-
+        <hr class="user-line">
+        <hr class="user-line">
         <li>
           <h3> {{ user.username }}'s Profile</h3>
 
@@ -14,6 +15,8 @@
           <h2> {{ user.email }}</h2>
 
         </li>
+        <hr class="user-line">
+        <hr class="user-line">
         <h1 v-if="this.user.questions_answered">
           You answer correct {{calculatePercentageScore()}} of the time</h1>
           <h3 > Achivements:</h3>
@@ -103,6 +106,37 @@ export default {
 </script>
 
 <style scoped>
+/*Mobile first*/
+h1{
+  color: #475569;
+  font-size: 14px;
+  font-family: 'Quicksand', sans-serif;
+}
+
+h2{
+  color: #475569;
+  font-family: 'Quicksand', sans-serif;
+}
+h3{
+  color: #475569;
+  font-family: 'Quicksand', sans-serif;
+  /*font-family: "Bauhaus 93";*/
+}
+.user-line {
+  color: #09523c;
+  background-color: #09523c;
+  height: 1px;
+  width: 80%;
+}
+
+div, html{
+  padding: 0;
+  margin: 0;
+  background: #bd7856;
+  width: 100%;
+  min-height: 100%;
+  border-radius: 10px;
+}
 .container {
   width: 100%;
 }
@@ -112,5 +146,27 @@ ul {
 
 .achiMedal{
   display:inline-grid;
+}
+
+/*tablet/iPad*/
+@media screen and (min-width: 768px) and (max-width: 1024px){
+  .user-line{
+    width: 50%;
+  }
+  h1{
+    font-size: 20px;
+  }
+
+}
+
+/*iPadPro*/
+/*desktop*/
+@media screen and (min-width: 1024px){
+  .user-line{
+    width: 55%;
+  }
+  h1{
+    font-size: 30px;
+  }
 }
 </style>
