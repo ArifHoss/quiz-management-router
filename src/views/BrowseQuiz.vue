@@ -54,6 +54,7 @@ export default {
 
 <style scoped>
 .container {
+  background-image: repeating-conic-gradient(#d5f8e5,#fffdfd, #f1cece);
   margin-top: 20px;
   width: 100%;
 }

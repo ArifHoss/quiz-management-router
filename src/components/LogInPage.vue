@@ -31,6 +31,8 @@ export default {
 <style scoped>
 .hello{
   background-image: linear-gradient(#42b983,#09523c,#fffdfd);
+/*background-image: linear-gradient(to bottom right, #00ffd9, #ffffff);*/
+  border-radius: 10px;
 }
 
 /*body > .hello{
