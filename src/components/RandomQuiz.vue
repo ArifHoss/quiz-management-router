@@ -230,8 +230,8 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap');
 img {
 
-  max-height: 500px;
-  max-width: 500px;
+  max-height: 300px;
+  max-width: 300px;
 }
 
 body {
@@ -335,11 +335,18 @@ button.displayCorrectAnswer {
   /*  max-width: 200px;*/
   /*  font-size: 1rem;*/
   /*}*/
-  
+  img {
+
+    max-height: 500px;
+    max-width: 500px;
+  }
 }
 
 /*desktop*/
 @media screen and (min-width: 1025px) {
-
+  img {
+    max-height: 500px;
+    max-width: 500px;
+  }
 }
 </style>
