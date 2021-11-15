@@ -266,6 +266,14 @@ button {
 }
 #next-button{
   width: 50%;
+  margin-top: 20px;
+  /*width: 100%;*/
+  /*height: 40px;*/
+  border: 2px solid #5bc293;
+  border-radius: 5px;
+  background-color: white;
+  color: #5bc293;
+  font-weight: bolder;
 }
 .endbuttons {
   display: flex;
