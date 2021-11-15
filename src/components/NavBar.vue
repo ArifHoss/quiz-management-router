@@ -95,6 +95,7 @@ header {
   width: 100%;
   font-family: 'Roboto', sans-serif;
   border-radius: 10px;
+  /*height: 15%;*/
 }
 
 h3 {
@@ -152,7 +153,8 @@ a {
 }
 
 .nav-link {
-  font-family: Rockwell;
+  /*font-family: Rockwell,serif;*/
+  font-family: 'Quicksand',sans-serif;
   font-size: 1rem;
   font-weight: 400;
   color: #475569;
@@ -163,10 +165,12 @@ a {
 }
 
 .nav-logo {
-  font-family: Rockwell;
+  font-family: 'Balsamiq Sans', cursive;
+  /*font-family: Rockwell,serif;*/
+  /*font-family: 'Quicksand',sans-serif;*/
   font-size: 2.1rem;
   border: 2px #42b983;
-  font-weight: 500;
+  font-weight: 547;
   color: #5bc293;
 }
 

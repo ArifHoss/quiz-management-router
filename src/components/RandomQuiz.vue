@@ -23,7 +23,7 @@
             @click.prevent="clickDisable"
           ></button>
           <hr class="line" />
-          <button @click="onClickNext">Next</button>
+          <button id= "next-button" @click="onClickNext">Next</button>
           <!--          <button @click="onClickBack">Back</button>-->
           <button @click="onClickRestart">Restart</button>
         </div>
@@ -263,6 +263,9 @@ button {
   width: 85%;
   max-width: 500px;
   font-size: 1rem;
+}
+#next-button{
+  width: 50%;
 }
 .endbuttons {
   display: flex;
