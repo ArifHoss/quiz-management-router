@@ -131,7 +131,7 @@ h3{
 
 div, html{
   background-image: url("../img/achievment.jpg");
-  background-image: radial-gradient(circle, #fffdfd, rgba(250, 231, 185, 0.65), #c9f6e9);
+  background-image: radial-gradient(circle, #fffdfd, rgba(241, 219, 95, 0.65), #c9f6e9);
   padding: 0;
   margin: 0;
   /*background: #bd7856;*/
