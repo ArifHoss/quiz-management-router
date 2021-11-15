@@ -12,7 +12,9 @@
           Currently at question {{ questionCounter + 1 }}/ 10
         </div>
         <h3 v-html="fetching ? 'Loading quiz....' : thisQuestion.question"></h3>
-        <p><img :src="require('../img/quiz-img/' + thisQuestion.img)" alt=""></p>
+        <div v-if="thisQuestion.img">
+          <p><img :src="require('../img/quiz-img/' + thisQuestion.img)" alt=""></p>
+        </div>
 
         <div class="alternatives" v-if="thisQuestion">
           <button
