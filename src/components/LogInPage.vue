@@ -30,19 +30,19 @@ export default {
 
 h1{
   color: #475569;
-  font-family: "Bauhaus 93";
+  font-family: 'Quicksand', sans-serif;
+  /*font-family: "Bauhaus 93";*/
 }
 h3{
   color: #475569;
-  font-family: "Bauhaus 93";
+  font-family: 'Quicksand', sans-serif;
+  /*font-family: "Bauhaus 93";*/
 }
-h4{
-  color: #475569;
-  font-family: "Bauhaus 93";
-}
+
 p{
   color: #09523c;
-  font-family: Papyrus;
+  font-family: 'Quicksand', sans-serif;
+  /*font-family: Papyrus;*/
 }
 
 /*button {*/
