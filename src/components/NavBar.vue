@@ -267,6 +267,5 @@ button:hover {
   .nav-link{
     font-size: 2rem;
   }
-
 }
 </style>
