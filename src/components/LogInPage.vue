@@ -29,6 +29,9 @@ export default {
 </script>
 
 <style scoped>
+.hello{
+  background-image: linear-gradient(#42b983,#09523c,#fffdfd);
+}
 
 /*body > .hello{
   height: 100%;

@@ -28,6 +28,7 @@
               <div @click="toggleHamburger" class="nav-link">My Profile</div>
             </router-link>
           </li>
+          
           <li class="nav-item">
             <button @click="logOut" class="sign-out">Log Out</button>
           </li>
