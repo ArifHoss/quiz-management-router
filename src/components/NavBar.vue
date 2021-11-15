@@ -91,9 +91,10 @@ export default {
 
 header {
   font-size: 62.5%;
-  background-color: #ec797a;
+  background-color: #c9f6e9;
   width: 100%;
   font-family: 'Roboto', sans-serif;
+  border-radius: 10px;
 }
 
 h3 {
@@ -255,6 +256,10 @@ button:hover {
 
 /*desktop*/
 @media screen and (min-width: 1025px){
+
+  header{
+    font-size: 42%;
+  }
   .nav-link{
     font-size: 2rem;
   }
