@@ -130,9 +130,11 @@ h3{
 }
 
 div, html{
+  background-image: url("../img/achievment.jpg");
+  background-image: radial-gradient(circle, #fffdfd, rgba(250, 231, 185, 0.65), #c9f6e9);
   padding: 0;
   margin: 0;
-  background: #bd7856;
+  /*background: #bd7856;*/
   width: 100%;
   min-height: 100%;
   border-radius: 10px;
@@ -163,7 +165,7 @@ ul {
 /*desktop*/
 @media screen and (min-width: 1024px){
   .user-line{
-    width: 55%;
+    width: 35%;
   }
   h1{
     font-size: 30px;
