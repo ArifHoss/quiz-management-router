@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div v-if="Object.entries(this.$store.getters.getUser).length === 0">
-      WOW! You successfully hacked the system
+      WOW! You successfully hacked the system of
     </div>
     <div v-else>
       <ul>
