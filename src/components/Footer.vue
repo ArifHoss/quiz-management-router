@@ -32,9 +32,11 @@ footer {
   color: #475569;
   padding: 0.05rem 1rem;
   margin: 50px auto auto auto;
-  width: 90%;
   font-size: 0.7rem;
-  background-color: #c9f6e9;
+  background: linear-gradient(25deg,
+  rgba(193,235,250,1) 0%,
+  rgba(201,246,233,1) 38%,
+  rgba(193,250,202,1) 100%);
   /*border: solid 1px black;*/
   border-radius: 10px;
 }
