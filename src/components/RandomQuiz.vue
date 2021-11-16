@@ -294,6 +294,7 @@ h3 {
   color: black;
   text-align: right;
   border-radius: 5px;
+  transition: 0.3s;
  }
  .bar-text {
    font-size: 0.8rem;
