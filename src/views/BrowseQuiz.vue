@@ -1,16 +1,20 @@
 <template>
   <section class="container">
 
-
-    <router-link :to="{ name: 'RandomQuiz', params: { apiUrl: 'quizzes/10' } }">
+    <div v-if="Object.entries(this.$store.getters.getUser).length === 0">
+      <router-link :to="{ name: 'RandomQuiz', params: { apiUrl: 'quizzes/10' } }">
       <h3>Random Quiz</h3>
       <img src="../img/halloweenfilmandtvpreview.png" alt="" />
-    </router-link>
-    
-    <div v-if="Object.entries(this.$store.getters.getUser).length === 0">
+      </router-link>
       <h3> Create an account or LogIn to get all quizzes!</h3>
     </div>
-    <div v-else>
+    <div class="grid-item" v-else>
+
+      <router-link :to="{ name: 'RandomQuiz', params: { apiUrl: 'quizzes/10' } }">
+      <h3>Random Quiz</h3>
+      <img src="../img/halloweenfilmandtvpreview.png" alt="" />
+      </router-link>
+
       <router-link :to="{name: 'RandomQuiz',params: { apiUrl: 'quizzes/get/category/sports/10' },}">
         <h3>Sports Quiz</h3>
         <img src="../img/lionel-messi-quiz.jpg" alt="" />

@@ -6,12 +6,18 @@
       <!--      <div v-if="!gameOver">-->
       <div v-if="!gameOver" class="quix-box">
         <div class="correctAnswers">
-          You have <strong>{{ scoreCounter }} correct answers!</strong>
+          <div class="bar-container">
+            <div :class="{'bar-style': barActive, 'bar-text': true}" :style="{width: progressBar}">
+              {{progressBar}}
+            </div>
+          </div>
         </div>
-        <div class="correctAnswers">
-          Currently at question {{ questionCounter + 1 }}/ 10
+        <div class="medal-container">
+          <div v-for="i in scoreCounter" :key="i">
+          <img class="medal" src="../img/icons/star.png">
+          </div>
         </div>
-        <h3 v-html="fetching ? 'Loading quiz....' : thisQuestion.question"></h3>
+        <h3 class="question" v-html="fetching ? 'Loading quiz....' : thisQuestion.question"></h3>
         <div v-if="thisQuestion.img">
           <p><img :src="require('../img/quiz-img/' + thisQuestion.img)" alt=""></p>
         </div>
@@ -94,6 +100,8 @@ export default {
       gameOver: false,
       questionCounter: 0,
       scoreCounter: 0,
+      progressBar: '0%',
+      barActive: false,
     }
   },
   computed: {
@@ -136,6 +144,8 @@ export default {
         allButtons[i].className = ''
       }
       this.questionCounter++
+      this.progressBar = (this.questionCounter) * 10 + '%';
+      this.barActive = true
     },
     async saveScore() {
       let user = this.$store.getters.getUser
@@ -255,28 +265,72 @@ h3 {
 .quix-box {
   display: grid;
 }
+
 .alternatives {
   display: flex;
   flex-direction: column;
   gap: 0.7rem;
   align-items: center;
 }
+.bar-container {
+  background-color: rgb(240, 240, 240);
+  box-shadow:
+      0 1px 1px rgb(220, 220, 220),
+      0 2px 2px rgb(220, 220, 220),
+      0 4px 4px rgb(220, 220, 220),
+      0 8px 8px rgb(220, 220, 220),
+      0 16px 16px rgb(220, 220, 220)
+    ;
+  width: 80%;
+  border-radius: 5px;
+  margin: auto;
+  max-width: 500px;
+ }
+.bar-style {
+  background: linear-gradient(25deg,
+  rgba(209,229,240,1) 0%,
+  rgba(161,215,245,1) 50%,
+  rgba(87,185,240,1) 100%);
+  color: black;
+  text-align: right;
+  border-radius: 5px;
+ }
+ .bar-text {
+   font-size: 0.8rem;
+   padding: 1%;
+ }
+.medal-container {
+   display: flex;
+   flex-direction: row;
+   margin: auto;
+   margin-top: 50px;
+ }
+.medal {
+  width: 25px;
+  height: 25px;
+  border: none;
+  margin-right: 5px;
+}
+
 button {
+  margin-bottom: 10px;
   width: 85%;
   max-width: 500px;
   font-size: 1rem;
+  border: none;
+  background: linear-gradient(25deg,
+  rgba(193,235,250,1) 0%,
+  rgba(201,246,233,1) 38%,
+  rgba(193,250,202,1) 100%);
+  box-shadow:
+      0 1px 1px hsl(0deg 0% 0% / 0.075),
+      0 2px 2px hsl(0deg 0% 0% / 0.075),
+      0 4px 4px hsl(0deg 0% 0% / 0.075),
+      0 8px 8px hsl(0deg 0% 0% / 0.075),
+      0 16px 16px hsl(0deg 0% 0% / 0.075)
+    ;
 }
-#next-button{
-  width: 50%;
-  margin-top: 20px;
-  /*width: 100%;*/
-  /*height: 40px;*/
-  border: 2px solid #5bc293;
-  border-radius: 5px;
-  background-color: white;
-  color: #5bc293;
-  font-weight: bolder;
-}
+
 .endbuttons {
   display: flex;
   flex-direction: column;
@@ -319,6 +373,13 @@ button.displayCorrectAnswer {
     rgba(0, 178, 72, 0.25),
     rgba(0, 178, 72, 0.5)
   );
+}
+
+button:active {
+    -ms-transform: translateY(4px);
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);
+    border-bottom: none;
 }
 
 .medal-icon {

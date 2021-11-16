@@ -108,12 +108,12 @@ label {
   height: 40px;
   border: 2px solid #5bc293;
   border-radius: 5px;
-  background-color: white;
-  color: #5bc293;
-  font-weight: bolder;
-}
-.btn:hover {
   color: white;
   background-color: #5bc293;
+  font-weight: bolder;
+  transition: 0.3s;
+}
+.btn:hover {
+  background-color: #338e64;
 }
 </style>

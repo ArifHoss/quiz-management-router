@@ -92,7 +92,10 @@ export default {
 
 header {
   font-size: 62.5%;
-  background-color: #c9f6e9;
+  background: linear-gradient(25deg,
+  rgba(193,235,250,1) 0%,
+  rgba(201,246,233,1) 38%,
+  rgba(193,250,202,1) 100%);
   width: 100%;
   font-family: 'Roboto', sans-serif;
   border-radius: 10px;
@@ -172,7 +175,7 @@ a {
   font-size: 2.1rem;
   border: 2px #42b983;
   font-weight: 547;
-  color: #5bc293;
+  color: #475569;
 }
 
 .nav-logo:hover {
@@ -186,28 +189,28 @@ a {
 button {
   width: 120px;
   height: 40px;
-  border: 2px solid #5bc293;
+  border: none;
   border-radius: 5px;
-  background-color: white;
-  color: #5bc293;
+  color: white;
+  background-color: #5bc293;
   font-weight: bolder;
   padding: 0;
+  transition: 0.3s;
 }
 
 button:hover {
-  color: white;
-  background-color: #5bc293;
+  background-color: #338e64;
 }
 
 .sign-out {
-  border: 2px solid #f25e60;
-  background-color: white;
-  color: #f25e60;
+  border: none;
+  color: white;
+  background-color: #f25e60;
+  transition: 0.3s;
 }
 
 .sign-out:hover {
-  color: white;
-  background-color: #f25e60;
+  background-color: #bb4749;
 }
 
 @media only screen and (max-width: 768px) {
