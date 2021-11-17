@@ -141,6 +141,7 @@ div, html{
 }
 .container {
   width: 100%;
+  margin-top: 20px;
 }
 ul {
   list-style-type: none;

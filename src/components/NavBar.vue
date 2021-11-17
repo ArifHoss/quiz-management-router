@@ -218,14 +218,18 @@ button:hover {
   .nav-menu {
     position: fixed;
     left: -100%;
-    top: 5rem;
+    top: 10.6rem;
     flex-direction: column;
-    background-color: #fff;
+    background: linear-gradient(25deg,
+  rgba(193,235,250,1) 0%,
+  rgba(201,246,233,1) 38%,
+  rgba(193,250,202,1) 100%);
     width: 100%;
     border-radius: 10px;
     text-align: center;
     transition: 0.3s;
     box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+    margin: auto;
   }
 
   .logged-in {
